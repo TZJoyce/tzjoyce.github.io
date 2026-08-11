@@ -741,7 +741,14 @@
                         <form action="https://formspree.io/f/maeweleq"
                             method="POST">
 
-                            <input type="hidden" name="_next" value="https://tzjoyce.github.io/zh/thank-you.html">
+                            <input type="hidden" name="_next" 
+                             value="https://tzjoyce.github.io/zh/thank-you.html">
+
+                            <!-- 設定 Email 主旨 --> 
+                            <input type="hidden" name="_subject" value="You've Got mail inquiry"> 
+                            
+                            <!-- Honeypot 防垃圾信 --> 
+                            <input type="text" name="_gotcha" style="display:none">
 
                             <div class="fields">
 
