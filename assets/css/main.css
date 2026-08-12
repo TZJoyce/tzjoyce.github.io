@@ -2519,6 +2519,14 @@ input, select, textarea {
 			font-family: 'Font Awesome 5 Brands';
 		}
 
+        /!--threads icon svg--/
+        .icons a svg {
+           width: 1em;
+           height: 1em;
+           fill: currentColor;
+           vertical-align: middle;
+           }
+
 		.icon.major {
 			width: 2.5em;
 			height: 2.5em;
