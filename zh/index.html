@@ -1141,206 +1141,298 @@ class="button large">
 
                 </p>
 
-                <div class="split style1">
 
-                    <!-- Form -->
+                    <div class="split style1">
+
+    <!-- Left：Contact Form -->
 
-                    <section>
+    <section>
 
-                        <form action="https://formspree.io/f/maeweleq"
-                            method="POST">
+        <form action="https://formspree.io/f/maeweleq"
+              method="POST">
 
-                            <input type="hidden" name="_next" 
-                             value="https://tzjoyce.github.io/zh/thank-you.html">
+            <!-- Success Page -->
+            <input type="hidden"
+                   name="_next"
+                   value="https://tzjoyce.github.io/zh/thank-you.html">
 
-                            <!-- 設定 Email 主旨 --> 
-                            <input type="hidden" name="_subject" value="You've Got mail inquiry"> 
-                            
-                            <!-- Honeypot 防垃圾信 --> 
-                            <input type="text" name="_gotcha" style="display:none">
+            <!-- Email Subject -->
+            <input type="hidden"
+                   name="_subject"
+                   value="Website Inquiry">
 
-                            <div class="fields">
+            <!-- Spam Protection -->
+            <input type="text"
+                   name="_gotcha"
+                   style="display:none">
 
-                                <div class="field half">
+            <div class="fields">
 
-                                    <label for="name">
+                <div class="field half">
+                    <label for="name">姓名</label>
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        required>
+                </div>
 
-                                        姓名
+                <div class="field half">
+                    <label for="Company">公司名稱</label>
+                    <input
+                        type="text"
+                        name="Company"
+                        id="Company"
+                        required>
+                </div>
 
-                                    </label>
+                <div class="field half">
+                    <label for="email">電子郵件</label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        required>
+                </div>
 
-                                    <input type="text"
-                                        name="name"
-                                        id="name"
-                                        required />
+                <div class="field">
 
-                                </div>
+                    <label for="project_type">
 
-                                <div class="field half">
+                        合作需求
 
-                                    <label for="Company">
+                    </label>
 
-                                        公司名稱
+                    <select
+                        name="project_type"
+                        id="project_type"
+                        required>
 
-                                    </label>
+                        <option value="" selected disabled>
+                            請選擇
+                        </option>
 
-                                    <input type="text"
-                                        name="Company"
-                                        id="Company" 
-                                        required />
+                        <option value="Lead Generation">
+                            增加潛在客戶（Lead Generation）
+                        </option>
 
-                                </div>
+                        <option value="Website Traffic">
+                            提升網站流量
+                        </option>
 
-                                <div class="field half">
+                        <option value="SEO">
+                            SEO 搜尋優化
+                        </option>
 
-                                    <label for="email">
+                        <option value="Go-to-Market">
+                            新產品上市規劃（Go-to-Market）
+                        </option>
 
-                                        電子郵件
+                        <option value="Conversion">
+                            提高網站轉換率
+                        </option>
 
-                                    </label>
+                        <option value="Content Marketing">
+                            行銷內容製作
+                        </option>
 
-                                    <input type="email"
-                                        name="email"
-                                        id="email"
-                                        required />
+                        <option value="Marketing Strategy">
+                            行銷策略規劃
+                        </option>
 
-                                </div>
+                        <option value="Other">
+                            其他
+                        </option>
 
-                                <div class="field">
+                    </select>
 
-                                    <label for="project_type">
+                </div>
 
-                                        合作需求
+                <div class="field">
 
-                                    </label>
+                    <label for="budget">
 
-                                    <select
-                                        name="project_type"
-                                        id="project_type"
-                                        required>
+                        預算範圍
 
-                                        <option selected disabled value="">
-                                            請選擇
-                                        </option>
+                    </label>
 
-                                        <option>
-                                            增加潛在客戶（Lead Generation）
-                                        </option>
+                    <select
+                        name="budget"
+                        id="budget"
+                        required>
 
-                                        <option>
-                                            提升網站流量
-                                        </option>
+                        <option value="" selected disabled>
+                            請選擇
+                        </option>
 
-                                        <option>
-                                            SEO 搜尋優化
-                                        </option>
+                        <option value="Under 3000">
+                            TWD 3,000 元以下
+                        </option>
 
-                                        <option>
-                                            新產品上市規劃（Go-to-Market）
-                                        </option>
+                        <option value="3000-8000">
+                            TWD 3,000–8,000 元
+                        </option>
 
-                                        <option>
-                                            提高網站轉換率
-                                        </option>
+                        <option value="8000-20000">
+                            TWD 8,000–20,000 元
+                        </option>
 
-                                        <option>
-                                            行銷內容製作
-                                        </option>
+                        <option value="20000-50000">
+                            TWD 20,000–50,000 元
+                        </option>
 
-                                        <option>
-                                            行銷策略規劃
-                                        </option>
+                        <option value="50000+">
+                            TWD 50,000 元以上
+                        </option>
 
-                                        <option>
-                                            其他
-                                        </option>
+                        <option value="Discuss">
+                            另外討論
+                        </option>
 
-                                    </select>
+                    </select>
 
-                                </div>
+                </div>
 
-                                <div class="field">
+                <div class="field">
 
-                                    <label for="budget">
+                    <label for="Project_Description">
 
-                                        預算範圍
+                        專案需求
 
-                                    </label>
+                    </label>
 
-                                    <select
-                                        name="budget"
-                                        id="budget"
-                                        required >
+                    <textarea
+                        name="Project_Description"
+                        id="Project_Description"
+                        rows="6"
+                        placeholder="請簡單描述您的專案需求、目前遇到的問題或希望達成的目標。"></textarea>
 
-                                        <option selected disabled value="">
-                                            請選擇
-                                        </option>
+                </div>
 
-                                        <option>
-                                            TWD 3,000 元以下
-                                        </option>
+            </div>
 
-                                        <option>
-                                            TWD 3,000–8,000 元
-                                        </option>
+            <ul class="actions">
 
-                                        <option>
-                                            TWD 8,000–20,000 元
-                                        </option>
+                <li>
 
-                                        <option>
-                                            TWD 20,000–50,000 元
-                                        </option>
+                    <button
+                        type="submit"
+                        class="primary">
 
-                                        <option>
-                                            TWD 50,000 元以上
-                                        </option>
+                        送出訊息
 
-                                        <option>
-                                            另外討論
-                                        </option>
+                    </button>
 
-                                    </select>
+                </li>
 
-                                </div>
+            </ul>
 
-                                <div class="field">
+        </form>
 
-                                    <label for="Project_Description">
+    </section>
 
-                                        專案需求
+    <!-- Right -->
 
-                                    </label>
+    <section>
 
-                                    <textarea
-                                        name="Project_Description"
-                                        id="Project_Description"
-                                        rows="5"
-                                        placeholder="請簡單描述您的專案需求、目前遇到的問題或希望達成的目標。"></textarea>
+        <ul class="contact">
 
-                                </div>
+            <li>
 
-                            </div>
+                <h3>📧 Email</h3>
 
-                            <ul class="actions">
+                <a href="mailto:joycetcc98@gmail.com">
 
-                                <li>
-                                    
-                                        <button
-                                        type="submit"
-                                        class="primary">
+                    joycetcc98@gmail.com
 
-                                        送出訊息
+                </a>
 
-                                    </button>
+            </li>
 
-                                </li>
+            <li>
 
-                            </ul>
+                <h3>🌏 社群平台</h3>
 
-                        </form>
+                <ul class="icons">
 
-                    </section>
+                    <li>
+                        <a href="你的網站"
+                           class="icon solid fa-globe">
+                            <span class="label">Website</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="你的LinkedIn"
+                           class="icon brands fa-linkedin-in">
+                            <span class="label">LinkedIn</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="你的Instagram"
+                           class="icon brands fa-instagram">
+                            <span class="label">Instagram</span>
+                        </a>
+                    </li>
+
+                    <li>
+
+                        <!-- Threads SVG -->
+
+                        <a href="你的Threads">
+
+                            <!-- SVG 放這裡 -->
+
+                            <span class="label">
+
+                                Threads
+
+                            </span>
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <li>
+
+                <h3>🤝 合作流程</h3>
+
+                <p>
+
+                    ① 填寫需求表單<br>
+
+                    ② Email 初步討論<br>
+
+                    ③ 提供合作建議與報價<br>
+
+                    ④ 專案開始執行
+
+                </p>
+
+            </li>
+
+            <li>
+
+                <h3>⏱ 回覆時間</h3>
+
+                <p>
+
+                    通常於 1–2 個工作天內回覆。
+
+                </p>
+
+            </li>
+
+        </ul>
+
+    </section>
+
+</div>        
 
                     <!-- Contact Info -->
 
