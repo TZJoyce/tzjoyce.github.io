@@ -3898,6 +3898,16 @@ margin-left:18em;
 
 }
 
+#sidebar nav ul li a{
+
+font-size:1.05rem;
+
+font-weight:600;
+
+letter-spacing:.05em;
+
+}
+
 /* Intro */
 
 	#intro {
