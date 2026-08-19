@@ -3908,6 +3908,212 @@ letter-spacing:.05em;
 
 }
 
+.button{
+
+transition:.35s;
+
+}
+
+.button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 15px 30px rgba(0,0,0,.18);
+
+}
+
+p{
+
+color:rgba(255,255,255,.82);
+
+line-height:1.95;
+
+font-size:1.02rem;
+
+}
+
+.features section{
+
+transition:.35s;
+
+border-radius:18px;
+
+}
+
+.features section:hover{
+
+transform:translateY(-10px);
+
+background:rgba(255,255,255,.06);
+
+}
+
+#Portfolio .features section{
+
+transition:.35s;
+
+}
+
+#Portfolio .features section:hover{
+
+background:#fff;
+
+color:#333;
+
+}
+
+#Portfolio .features section:hover h3{
+
+color:#222;
+
+}
+
+/* Portfolio Hover */
+
+.portfolio-card{
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:18px;
+
+}
+
+.portfolio-card img{
+
+width:100%;
+
+display:block;
+
+transition:.6s;
+
+}
+
+.portfolio-card:hover img{
+
+transform:scale(1.1);
+
+filter:brightness(.45);
+
+}
+
+.portfolio-overlay{
+
+position:absolute;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+padding:40px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:flex-end;
+
+background:linear-gradient(
+
+transparent,
+
+rgba(0,0,0,.85)
+
+);
+
+opacity:0;
+
+transition:.45s;
+
+}
+
+.portfolio-card:hover .portfolio-overlay{
+
+opacity:1;
+
+}
+
+.portfolio-overlay h3{
+
+color:#fff;
+
+margin-bottom:12px;
+
+}
+
+.portfolio-overlay p{
+
+color:#ddd;
+
+margin-bottom:25px;
+
+}
+
+.category{
+
+display:inline-block;
+
+padding:6px 12px;
+
+background:#6f61d8;
+
+border-radius:20px;
+
+font-size:.75rem;
+
+margin-bottom:18px;
+
+color:#fff;
+
+}
+
+.portfolio-overlay .button{
+
+align-self:flex-start;
+
+transform:translateY(20px);
+
+opacity:0;
+
+transition:.4s;
+
+}
+
+.portfolio-card:hover .button{
+
+transform:translateY(0);
+
+opacity:1;
+
+transition-delay:.2s;
+
+}.portfolio-overlay .button{
+
+align-self:flex-start;
+
+transform:translateY(20px);
+
+opacity:0;
+
+transition:.4s;
+
+}
+
+.portfolio-card:hover .button{
+
+transform:translateY(0);
+
+opacity:1;
+
+transition-delay:.2s;
+
+}
+
 /* Intro */
 
 	#intro {
