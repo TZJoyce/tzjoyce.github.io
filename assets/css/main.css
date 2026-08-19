@@ -3878,6 +3878,26 @@ input, select, textarea {
 
 		}
 
+       #sidebar{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+height:100vh;
+
+z-index:9999;
+
+}
+
+#wrapper{
+
+margin-left:18em;
+
+}
+
 /* Intro */
 
 	#intro {
