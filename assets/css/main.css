@@ -5535,3 +5535,98 @@ padding:1.6rem;
 }
 
 }
+
+
+/* =====================================
+   HERO SERVICES
+===================================== */
+
+.hero-services{
+
+    margin-top:4rem;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:1.8rem;
+
+}
+
+.hero-service{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:18px;
+
+    padding:2rem 1.5rem;
+
+    text-align:center;
+
+    transition:.35s;
+
+    backdrop-filter:blur(6px);
+
+}
+
+.hero-service:hover{
+
+    transform:translateY(-8px);
+
+    background:rgba(255,255,255,.15);
+
+}
+
+.hero-service .icon{
+
+    font-size:2rem;
+
+    margin-bottom:1rem;
+
+    color:#ffffff;
+
+}
+
+.hero-service h3{
+
+    color:#ffffff;
+
+    margin-bottom:.8rem;
+
+    font-size:1.15rem;
+
+}
+
+.hero-service p{
+
+    color:rgba(255,255,255,.82);
+
+    margin:0;
+
+    line-height:1.7;
+
+    font-size:.95rem;
+
+}
+
+@media screen and (max-width:980px){
+
+.hero-services{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media screen and (max-width:736px){
+
+.hero-services{
+
+grid-template-columns:1fr;
+
+}
+
+}
