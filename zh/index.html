@@ -39,7 +39,7 @@
 	<link rel="stylesheet" href="./blog/blog.css" />
 	<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 
-	<!-- 自訂樣式優化：固定導覽列、Mobile 文字清晰度、表單優化 -->
+	<!-- 自訂樣式優化：固定導覽列、Hero遮罩、圖片Hover、Mobile文字清晰度、表單優化 -->
 	<style>
 		/* 1. Header 固定置頂 */
 		#header {
@@ -56,11 +56,23 @@
 			padding-top: 3.5em; /* 避免固定導覽列遮擋內容 */
 		}
 
-		/* 2. Hero 段落置中 */
+		/* 2. Hero (Banner) 背景圖片與深色質感遮罩 (Landed 原生質感) */
+		#banner {
+			background-attachment: fixed;
+			background-image: linear-gradient(rgba(30, 32, 44, 0.65), rgba(30, 32, 44, 0.65)), url('../images/banner.jpg');
+			background-position: center center;
+			background-size: cover;
+			position: relative;
+			padding: 8em 0 6em 0;
+		}
+
+		/* Hero 段落置中 */
 		#banner .content {
 			text-align: center !important;
 			max-width: 900px;
 			margin: 0 auto;
+			position: relative;
+			z-index: 2;
 		}
 		#banner .content header h2, 
 		#banner .content header p, 
@@ -73,16 +85,36 @@
 			gap: 1em;
 		}
 
-		/* 3. 手機版文字清晰度提升 */
+		/* 3. 關於我 (Spotlight) 照片 Hover 動態放大效果 */
+		.spotlight .image {
+			overflow: hidden;
+			border-radius: 8px;
+		}
+		.spotlight .image img {
+			transition: transform 0.6s ease, filter 0.6s ease;
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+		.spotlight:hover .image img {
+			transform: scale(1.06); /* 滑鼠游移時微微放大 */
+			filter: brightness(1.05); /* 稍微提亮 */
+		}
+
+		/* 4. 手機版文字清晰度提升 */
 		p, li, span {
-			color: rgba(255, 255, 255, 0.88) !important; /* 提高文字對比度 */
+			color: rgba(255, 255, 255, 0.88) !important;
 			line-height: 1.75 !important;
 		}
 		@media screen and (max-width: 736px) {
 			p, li {
-				font-size: 1.02rem !important; /* 手機版略加大字級 */
+				font-size: 1.02rem !important;
 				color: #ffffff !important;
 				line-height: 1.8 !important;
+			}
+			#banner {
+				padding: 5em 1em 4em 1em;
+				background-attachment: scroll; /* 手機版關閉 fixed 避免卡頓 */
 			}
 			#banner .actions {
 				flex-direction: column;
@@ -90,7 +122,7 @@
 			}
 		}
 
-		/* 6. 表單文字清晰化修復 */
+		/* 5. 表單文字清晰化修復 */
 		form input[type="text"],
 		form input[type="email"],
 		form select,
@@ -113,7 +145,7 @@
 			background: rgba(255, 255, 255, 0.15) !important;
 		}
 
-		/* 7. 表單右側資訊美化（無 Emoji，專業商務風格） */
+		/* 6. 表單右側資訊美化（無 Emoji，專業商務風格） */
 		.contact-info-card {
 			background: rgba(255, 255, 255, 0.03);
 			border: 1px solid rgba(255, 255, 255, 0.1);
@@ -159,7 +191,7 @@
 			margin-bottom: 0.3em;
 		}
 	</style>
-
+	
 	<!-- Schema -->
 	<script type="application/ld+json">
 	{
