@@ -374,100 +374,130 @@
 			</div>
 		</section>
 
-		<!-- 5. 聯絡我 (Contact) -->
+		<!-- 5. 聯絡我 (Contact) - 重新排版與視覺優化版 -->
 		<section id="contact" class="wrapper style2 special fade-up">
 			<div class="container">
 				<header class="major">
-					<h2>聯絡我</h2>
-					<p>歡迎填寫下方需求表單或透過 Email 直接聯繫，通常於 1–2 個工作天內回覆。</p>
+					<h2>預約專案諮詢 / 聯絡我</h2>
+					<p>無論是具體的行銷專案合作，或是初步的需求評估，都歡迎透過下方表單或 Email 與我聯繫。</p>
 				</header>
-				
-				<div class="row gtr-uniform">
-					<!-- 左側表單 (文字已修復為高對比度清晰視覺) -->
-					<div class="col-7 col-12-medium">
-						<form action="https://formspree.io/f/maeweleq" method="POST">
-							<input type="hidden" name="_next" value="https://tzjoyce.github.io/zh/thank-you.html">
-							<input type="hidden" name="_subject" value="Website Inquiry">
-							<input type="text" name="_gotcha" style="display:none">
 
-							<div class="row gtr-uniform">
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="name" id="name" placeholder="您的姓名 *" required />
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="Company" id="Company" placeholder="公司名稱 *" required />
-								</div>
-								<div class="col-12">
-									<input type="email" name="email" id="email" placeholder="電子郵件地址 *" required />
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<select name="project_type" id="project_type" required>
-										<option value="" selected disabled>請選擇合作需求 *</option>
-										<option value="Lead Generation">潛在客戶開發 (Lead Generation)</option>
-										<option value="Go-to-Market">新產品上市規劃 (Go-to-Market)</option>
-										<option value="SEO">SEO / GEO 搜尋優化</option>
-										<option value="Content Marketing">內容行銷與銷售素材撰寫</option>
-										<option value="Marketing Analytics">GA4 與數據成效分析</option>
-										<option value="Other">其他專案諮詢</option>
-									</select>
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<select name="budget" id="budget" required>
-										<option value="" selected disabled>請選擇預算範圍 *</option>
-										<option value="Under 3000">TWD 3,000 元以下</option>
-										<option value="3000-8000">TWD 3,000–8,000 元</option>
-										<option value="8000-20000">TWD 8,000–20,000 元</option>
-										<option value="20000-50000">TWD 20,000–50,000 元</option>
-										<option value="50000+">TWD 50,000 元以上</option>
-										<option value="Discuss">另外討論</option>
-									</select>
-								</div>
-								<div class="col-12">
-									<textarea name="Project_Description" id="Project_Description" placeholder="請簡單描述您的專案需求、目前遇到的瓶頸或預計達成的目標..." rows="5"></textarea>
-								</div>
-								<div class="col-12">
-									<ul class="actions">
-										<li><input type="submit" value="送出諮詢需求" class="primary large" /></li>
-									</ul>
-								</div>
-							</div>
-						</form>
+				<!-- 頂部資訊卡片：Email、合作流程、常見疑慮 (三欄橫排) -->
+				<div class="row gtr-uniform" style="margin-bottom: 2.5em;">
+					
+					<!-- 卡片 1: Email 聯繫 -->
+					<div class="col-4 col-12-medium">
+						<div class="contact-info-card" style="height: 100%; text-align: left;">
+							<h3><i class="icon solid fa-envelope"></i> 電子郵件</h3>
+							<p style="font-size: 0.95em; margin-bottom: 0.8em; color: rgba(255,255,255,0.7);">習慣直接寄信？歡迎直接來信討論：</p>
+							<p style="margin: 0;"><a href="mailto:joycetcc98@gmail.com" style="color: #ffffff; text-decoration: underline; font-weight: bold;">joycetcc98@gmail.com</a></p>
+							<span style="font-size: 0.85em; color: rgba(255,255,255,0.5); display: block; margin-top: 0.5em;">（通常於 1–2 個工作天內回覆）</span>
+						</div>
 					</div>
 
-					<!-- 右側資訊與 FAQ（質感商務排版，無 Emoji） -->
-					<div class="col-5 col-12-medium text-left">
-						
-						<!-- Email -->
-						<div class="contact-info-card">
-							<h3><i class="icon solid fa-envelope"></i> 電子郵件聯繫</h3>
-							<p style="margin-bottom: 0;"><a href="mailto:joycetcc98@gmail.com" style="color: #ffffff; text-decoration: underline;">joycetcc98@gmail.com</a></p>
-						</div>
-
-						<!-- 合作流程 -->
-						<div class="contact-info-card">
-							<h3><i class="icon solid fa-tasks"></i> 專案合作流程</h3>
-							<ul class="process-list">
-								<li>填寫線上需求表單</li>
-								<li>Email 初步需求確認與評估</li>
-								<li>提供專案建議書與合作報價</li>
-								<li>簽訂合約並正式啟動執行</li>
+					<!-- 卡片 2: 合作流程 -->
+					<div class="col-4 col-12-medium">
+						<div class="contact-info-card" style="height: 100%; text-align: left;">
+							<h3><i class="icon solid fa-stream"></i> 合作流程</h3>
+							<ul class="process-list" style="font-size: 0.9em;">
+								<li>填寫下方諮詢表單</li>
+								<li>Email 初步需求與範疇確認</li>
+								<li>提供客製化建議書與報價</li>
+								<li>雙方簽約並正式啟動專案</li>
 							</ul>
 						</div>
+					</div>
 
-						<!-- 常見問題 -->
-						<div class="contact-info-card">
-							<h3><i class="icon solid fa-question-circle"></i> 常見問題</h3>
-							<div class="faq-item">
-								<strong>Q: 是否支援全英文專案？</strong>
-								<p style="font-size: 0.9em; margin: 0;">可以，包含英文網站內容、SEO 佈局與英文 Sales Deck 撰寫。</p>
+					<!-- 卡片 3: 常見問題 -->
+					<div class="col-4 col-12-medium">
+						<div class="contact-info-card" style="height: 100%; text-align: left;">
+							<h3><i class="icon solid fa-shield-alt"></i> 合作保障</h3>
+							<div class="faq-item" style="font-size: 0.9em; margin-bottom: 0.8em;">
+								<strong>雙語專案執行</strong>
+								<p style="font-size: 0.85em; margin: 0; color: rgba(255,255,255,0.7);">支援全英文網站、SEO 及 Sales Deck 撰寫。</p>
 							</div>
-							<div class="faq-item" style="margin-bottom: 0;">
-								<strong>Q: 是否可配合簽署保密協議 (NDA)？</strong>
-								<p style="font-size: 0.9em; margin: 0;">可以，企業合作皆可配合簽署標準保密協議。</p>
+							<div class="faq-item" style="font-size: 0.9em; margin: 0;">
+								<strong>保密協定 (NDA)</strong>
+								<p style="font-size: 0.85em; margin: 0; color: rgba(255,255,255,0.7);">企業合作皆可配合簽署標準保密條款。</p>
 							</div>
 						</div>
-
 					</div>
+
+				</div>
+
+				<!-- 中央主要表單容器 (大器寬幅卡片) -->
+				<div class="box" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.12); padding: 3em 2.5em; border-radius: 12px; text-align: left; max-width: 960px; margin: 0 auto;">
+					
+					<form action="https://formspree.io/f/maeweleq" method="POST">
+						<input type="hidden" name="_next" value="https://tzjoyce.github.io/zh/thank-you.html">
+						<input type="hidden" name="_subject" value="Website Inquiry - Joyce Chu">
+						<input type="text" name="_gotcha" style="display:none">
+
+						<div class="row gtr-uniform">
+							
+							<!-- 區塊 1: 基本聯絡資訊 -->
+							<div class="col-12">
+								<h4 style="color: #e44c65; margin-bottom: 0.5em; font-size: 0.95em; letter-spacing: 1px; text-transform: uppercase;">1. 您的基本資料</h4>
+							</div>
+							<div class="col-6 col-12-xsmall">
+								<label for="name" style="color: #ffffff; font-size: 0.9em; margin-bottom: 0.3em; display: block;">您的姓名 *</label>
+								<input type="text" name="name" id="name" placeholder="例如：王小明" required />
+							</div>
+							<div class="col-6 col-12-xsmall">
+								<label for="Company" style="color: #ffffff; font-size: 0.9em; margin-bottom: 0.3em; display: block;">公司名稱 / 品牌 *</label>
+								<input type="text" name="Company" id="Company" placeholder="例如：OO 科技股份有限公司" required />
+							</div>
+							<div class="col-12">
+								<label for="email" style="color: #ffffff; font-size: 0.9em; margin-bottom: 0.3em; display: block;">電子郵件地址 *</label>
+								<input type="email" name="email" id="email" placeholder="name@company.com" required />
+							</div>
+
+							<!-- 區塊 2: 合作範疇與預算 -->
+							<div class="col-12" style="margin-top: 1.5em;">
+								<h4 style="color: #e44c65; margin-bottom: 0.5em; font-size: 0.95em; letter-spacing: 1px; text-transform: uppercase;">2. 專案需求與預算</h4>
+							</div>
+							<div class="col-6 col-12-xsmall">
+								<label for="project_type" style="color: #ffffff; font-size: 0.9em; margin-bottom: 0.3em; display: block;">預計合作項目 *</label>
+								<select name="project_type" id="project_type" required>
+									<option value="" selected disabled>請選擇主要需求</option>
+									<option value="Lead Generation">潛在客戶開發 (Lead Generation)</option>
+									<option value="Go-to-Market">新產品上市規劃 (Go-to-Market)</option>
+									<option value="SEO/GEO">SEO / GEO 搜尋引擎優化</option>
+									<option value="Content Marketing">內容行銷與銷售素材撰寫</option>
+									<option value="Marketing Analytics">GA4 與數據成效分析 Dashboard</option>
+									<option value="Other">其他專案諮詢 / 長期顧問</option>
+								</select>
+							</div>
+							<div class="col-6 col-12-xsmall">
+								<label for="budget" style="color: #ffffff; font-size: 0.9em; margin-bottom: 0.3em; display: block;">預估預算範圍 *</label>
+								<select name="budget" id="budget" required>
+									<option value="" selected disabled>請選擇預算範圍</option>
+									<option value="Under 3000">TWD 3,000 元以下</option>
+									<option value="3000-8000">TWD 3,000–8,000 元</option>
+									<option value="8000-20000">TWD 8,000–20,000 元</option>
+									<option value="20000-50000">TWD 20,000–50,000 元</option>
+									<option value="50000+">TWD 50,000 元以上</option>
+									<option value="Discuss">彈性 / 面議討論</option>
+								</select>
+							</div>
+
+							<!-- 區塊 3: 需求細節 -->
+							<div class="col-12" style="margin-top: 1.5em;">
+								<h4 style="color: #e44c65; margin-bottom: 0.5em; font-size: 0.95em; letter-spacing: 1px; text-transform: uppercase;">3. 專案細節描述</h4>
+								<label for="Project_Description" style="color: #ffffff; font-size: 0.9em; margin-bottom: 0.3em; display: block;">需求說明</label>
+								<textarea name="Project_Description" id="Project_Description" placeholder="請簡單說明您的產品/服務類型、目前遇到的行銷挑戰，或是期望說明的具體目標..." rows="5"></textarea>
+							</div>
+
+							<!-- 送出按鈕 -->
+							<div class="col-12" style="text-align: center; margin-top: 2em;">
+								<ul class="actions special">
+									<li><input type="submit" value="確認送出諮詢需求" class="primary large" /></li>
+								</ul>
+							</div>
+
+						</div>
+					</form>
+
 				</div>
 			</div>
 		</section>
