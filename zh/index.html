@@ -34,10 +34,131 @@
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="../images/favicon.png">
 
-	<!-- CSS (Landed 模板標準 CSS) -->
+	<!-- CSS -->
 	<link rel="stylesheet" href="../assets/css/main.css" />
 	<link rel="stylesheet" href="./blog/blog.css" />
 	<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+
+	<!-- 自訂樣式優化：固定導覽列、Mobile 文字清晰度、表單優化 -->
+	<style>
+		/* 1. Header 固定置頂 */
+		#header {
+			position: fixed !important;
+			top: 0 !important;
+			left: 0 !important;
+			width: 100% !important;
+			z-index: 10000 !important;
+			background: rgba(30, 32, 44, 0.95) !important;
+			backdrop-filter: blur(8px);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		}
+		body {
+			padding-top: 3.5em; /* 避免固定導覽列遮擋內容 */
+		}
+
+		/* 2. Hero 段落置中 */
+		#banner .content {
+			text-align: center !important;
+			max-width: 900px;
+			margin: 0 auto;
+		}
+		#banner .content header h2, 
+		#banner .content header p, 
+		#banner .content p {
+			text-align: center !important;
+		}
+		#banner .actions {
+			justify-content: center !important;
+			display: flex;
+			gap: 1em;
+		}
+
+		/* 3. 手機版文字清晰度提升 */
+		p, li, span {
+			color: rgba(255, 255, 255, 0.88) !important; /* 提高文字對比度 */
+			line-height: 1.75 !important;
+		}
+		@media screen and (max-width: 736px) {
+			p, li {
+				font-size: 1.02rem !important; /* 手機版略加大字級 */
+				color: #ffffff !important;
+				line-height: 1.8 !important;
+			}
+			#banner .actions {
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+
+		/* 6. 表單文字清晰化修復 */
+		form input[type="text"],
+		form input[type="email"],
+		form select,
+		form textarea {
+			color: #ffffff !important;
+			background: rgba(255, 255, 255, 0.08) !important;
+			border: 1px solid rgba(255, 255, 255, 0.3) !important;
+			font-size: 1rem !important;
+		}
+		form input::placeholder,
+		form textarea::placeholder {
+			color: rgba(255, 255, 255, 0.6) !important;
+		}
+		form select option {
+			background-color: #27293d !important;
+			color: #ffffff !important;
+		}
+		form input:focus, form select:focus, form textarea:focus {
+			border-color: #e44c65 !important;
+			background: rgba(255, 255, 255, 0.15) !important;
+		}
+
+		/* 7. 表單右側資訊美化（無 Emoji，專業商務風格） */
+		.contact-info-card {
+			background: rgba(255, 255, 255, 0.03);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 8px;
+			padding: 1.8em;
+			margin-bottom: 1.5em;
+		}
+		.contact-info-card h3 {
+			font-size: 1.15em;
+			color: #ffffff;
+			margin-bottom: 0.8em;
+			display: flex;
+			align-items: center;
+			gap: 0.5em;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			padding-bottom: 0.5em;
+		}
+		.contact-info-card h3 .icon {
+			color: #e44c65;
+		}
+		.process-list {
+			list-style: none;
+			padding-left: 0;
+			margin: 0;
+		}
+		.process-list li {
+			position: relative;
+			padding-left: 1.5em;
+			margin-bottom: 0.6em;
+		}
+		.process-list li::before {
+			content: "—";
+			position: absolute;
+			left: 0;
+			color: #e44c65;
+		}
+		.faq-item {
+			margin-bottom: 1.2em;
+		}
+		.faq-item strong {
+			color: #ffffff;
+			display: block;
+			margin-bottom: 0.3em;
+		}
+	</style>
 
 	<!-- Schema -->
 	<script type="application/ld+json">
@@ -53,15 +174,6 @@
 		],
 		"knowsAbout":[
 			"B2B Marketing", "Product Marketing", "SEO", "GEO", "Content Marketing", "Lead Generation", "Marketing Analytics", "Google Analytics 4", "Go-to-Market Strategy"
-		],
-		"makesOffer":[
-			{ "@type":"Offer", "itemOffered":{ "@type":"Service", "name":"SEO Website", "description":"SEO、GEO網站規劃與優化。" } },
-			{ "@type":"Offer", "itemOffered":{ "@type":"Service", "name":"Content Marketing", "description":"B2B內容行銷與社群內容規劃。" } },
-			{ "@type":"Offer", "itemOffered":{ "@type":"Service", "name":"Lead Generation", "description":"B2B潛在客戶開發策略。" } },
-			{ "@type":"Offer", "itemOffered":{ "@type":"Service", "name":"Email Marketing", "description":"EDM與CRM行銷。" } },
-			{ "@type":"Offer", "itemOffered":{ "@type":"Service", "name":"Sales Deck", "description":"Sales Deck、Brochure與業務簡報。" } },
-			{ "@type":"Offer", "itemOffered":{ "@type":"Service", "name":"Marketing Analytics", "description":"GA4、行銷成效分析與Dashboard。" } },
-			{ "@type":"Offer", "itemOffered":{ "@type":"Service", "name":"B2B Digital Marketing", "description":"B2B數位行銷規劃與執行。" } }
 		]
 	}
 	</script>
@@ -70,76 +182,42 @@
 <body class="is-preload landing">
 	<div id="page-wrapper">
 
-		<!-- Header (Landed 頂部導覽列) -->
+		<!-- Header (固定置頂導覽列) -->
 		<header id="header">
 			<h1 id="logo"><a href="#banner">Joyce Chu</a></h1>
 			<nav id="nav">
 				<ul>
 					<li><a href="#banner" class="scrolly">首頁</a></li>
 					<li><a href="#about" class="scrolly">關於我</a></li>
-					<li><a href="#services" class="scrolly">服務項目</a></li>
-					<li><a href="#portfolio" class="scrolly">作品案例</a></li>
 					<li><a href="#blog" class="scrolly">文章分享</a></li>
+					<li><a href="#services-portfolio" class="scrolly">服務與案例</a></li>
+					<li><a href="#outcomes" class="scrolly">合作效益</a></li>
 					<li><a href="#contact" class="scrolly button primary">聯絡我</a></li>
 					<li><a href="../index.html" class="button alt">English</a></li>
 				</ul>
 			</nav>
 		</header>
 
-		<!-- Banner (Landed 主視覺區) -->
+		<!-- Banner (Hero 區塊 - 全置中) -->
 		<section id="banner">
 			<div class="content">
 				<header>
 					<h2>B2B 產品行銷 × 數位行銷接案</h2>
-					<p>Joyce Chu｜台大國企所碩士｜科技 × 製造業 B2B 行銷</p>
+					<p>Joyce Chu｜台大國企所碩士｜科技 × 製造業 B2B 行銷專案顧問</p>
 				</header>
 				<p>
 					站在產業趨勢與需求最前線，協助 B2B 科技與製造業企業建立可持續成長的數位行銷策略。<br />
-					提供產品行銷、SEO、GEO (AI Search)、Lead Generation、Go-to-Market、內容行銷、EDM、GA4 行銷分析等專案合作。
+					提供產品行銷、SEO、GEO (AI Search)、Lead Generation、Go-to-Market、內容行銷與 GA4 數據分析合作。
 				</p>
 				<ul class="actions">
-					<li><a href="#services" class="button primary large scrolly">查看服務項目</a></li>
-					<li><a href="#portfolio" class="button large scrolly">查看作品案例</a></li>
+					<li><a href="#services-portfolio" class="button primary large scrolly">查看服務與案例</a></li>
+					<li><a href="#contact" class="button large scrolly">立即諮詢合作</a></li>
 				</ul>
 			</div>
 			<a href="#about" class="goto-next scrolly">Next</a>
 		</section>
 
-		<!-- Service Highlights (Landed 功能卡片列表) -->
-		<section class="wrapper style1 special fade-up">
-			<div class="container">
-				<header class="major">
-					<h2>從這您能得到什麼成果？</h2>
-					<p>以數據與策略為核心，協助企業打造高轉化的行銷漏斗</p>
-				</header>
-				<div class="box alt">
-					<div class="row gtr-uniform">
-						<section class="col-4 col-6-medium col-12-xsmall">
-							<span class="icon solid alt major fa-search"></span>
-							<h3>提升網站自然流量 SEO × GEO</h3>
-							<p>流量提升與 AI 搜尋曝光是企業必備的低成本取得商機方法。</p>
-						</section>
-						<section class="col-4 col-6-medium col-12-xsmall">
-							<span class="icon solid alt major fa-users"></span>
-							<h3>潛在客戶 Lead Generation</h3>
-							<p>建立持續穩定的 B2B 潛在客戶來源，篩選出高品質商機是關鍵。</p>
-						</section>
-						<section class="col-4 col-6-medium col-12-xsmall">
-							<span class="icon solid alt major fa-bullhorn"></span>
-							<h3>確立品牌定位 Go-to-Market</h3>
-							<p>規劃明確的市場進入與行銷策略，不讓行銷預算做白工。</p>
-						</section>
-						<section class="col-4 col-12-medium col-12-xsmall">
-							<span class="icon solid alt major fa-chart-line"></span>
-							<h3>數據驅動決策 Marketing Analytics</h3>
-							<p>透過專業 GA4、Meta Ads KPI 與 Dashboard，隨時動態調整最佳策略。</p>
-						</section>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- About (Landed Spotlight 區塊) -->
+		<!-- 1. 關於我 (About) -->
 		<section id="about" class="spotlight style1 right">
 			<span class="image fit main"><img src="../images/pic01.jpg" alt="Joyce Chu" /></span>
 			<div class="content">
@@ -152,114 +230,129 @@
 					我相信，好的行銷不是單純曝光，而是讓真正需要的人，在正確的時間找到你的產品。
 				</p>
 				<ul class="actions">
-					<li><a href="#contact" class="button primary scrolly">立即合作</a></li>
+					<li><a href="#contact" class="button primary scrolly">洽談專案合作</a></li>
 				</ul>
 			</div>
 		</section>
 
-		<!-- Services (Landed Grid 區塊) -->
-		<section id="services" class="wrapper style1 special fade-up">
+		<!-- 2. B2B 行銷策略全破解 (Blog / 文章分享) -->
+		<section id="blog" class="wrapper style1 special fade-up">
 			<div class="container">
 				<header class="major">
-					<h2>服務項目</h2>
-					<p>提供從行銷策略、內容規劃、潛在客戶開發到成效分析的一站式專案合作</p>
+					<h2>B2B 行銷策略全破解</h2>
+					<p>分享 SEO、GEO、Lead Generation、Go-to-Market、GA4 等實務觀點與洞察</p>
+				</header>
+				<!-- 動態渲染文章區塊 (homepage-blog.js 注入) -->
+				<div class="row gtr-uniform" id="homepageBlog"></div>
+			</div>
+		</section>
+
+		<!-- 3. 服務項目與作品案例 (整合區塊 + CTA 按鈕) -->
+		<section id="services-portfolio" class="wrapper style2 fade-up">
+			<div class="container">
+				<header class="major special">
+					<h2>服務項目與實績案例</h2>
+					<p>結合策略規劃、內容產出與成效追蹤，為企業打造高轉化的行銷漏斗</p>
+				</header>
+				<div class="row gtr-uniform">
+					
+					<!-- 服務 & 案例卡片 1 -->
+					<div class="col-6 col-12-medium">
+						<section class="box alt" style="background: rgba(255,255,255,0.03); padding: 2em; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); height: 100%; display: flex; flex-direction: column;">
+							<span class="icon solid alt major fa-users" style="color: #e44c65;"></span>
+							<h3>B2B 潛在客戶開發 (Lead Generation)</h3>
+							<p style="flex-grow: 1;">整合 SEO、GEO (AI 搜尋優化)、高轉換 Landing Page 與自動化 Email 流程，建立穩定且高品質的 B2B 商機開發管道。</p>
+							<ul class="actions" style="margin-top: 1.5em;">
+								<li><a href="blog/index.html" class="button primary small">查看 Lead Gen 相關案例</a></li>
+							</ul>
+						</section>
+					</div>
+
+					<!-- 服務 & 案例卡片 2 -->
+					<div class="col-6 col-12-medium">
+						<section class="box alt" style="background: rgba(255,255,255,0.03); padding: 2em; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); height: 100%; display: flex; flex-direction: column;">
+							<span class="icon solid alt major fa-bullseye" style="color: #e44c65;"></span>
+							<h3>Go-to-Market 與產品上市策略</h3>
+							<p style="flex-grow: 1;">協助科技與製造業產品釐清定位 (Positioning)、擬定進入市場策略與 Campaign 規劃，讓行銷與業務溝通語言保持一致。</p>
+							<ul class="actions" style="margin-top: 1.5em;">
+								<li><a href="blog/index.html" class="button primary small">查看 GTM 上市案例</a></li>
+							</ul>
+						</section>
+					</div>
+
+					<!-- 服務 & 案例卡片 3 -->
+					<div class="col-6 col-12-medium">
+						<section class="box alt" style="background: rgba(255,255,255,0.03); padding: 2em; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); height: 100%; display: flex; flex-direction: column;">
+							<span class="icon solid alt major fa-file-alt" style="color: #e44c65;"></span>
+							<h3>專業內容行銷與業務銷售素材</h3>
+							<p style="flex-grow: 1;">將複雜產品與技術轉化為具說服力的行銷語言，提供 SEO 文章、Sales Deck、產品型錄、新聞稿與客戶成功案例撰寫。</p>
+							<ul class="actions" style="margin-top: 1.5em;">
+								<li><a href="blog/index.html" class="button primary small">查看內容產出案例</a></li>
+							</ul>
+						</section>
+					</div>
+
+					<!-- 服務 & 案例卡片 4 -->
+					<div class="col-6 col-12-medium">
+						<section class="box alt" style="background: rgba(255,255,255,0.03); padding: 2em; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); height: 100%; display: flex; flex-direction: column;">
+							<span class="icon solid alt major fa-chart-pie" style="color: #e44c65;"></span>
+							<h3>GA4 與行銷數據分析 Dashboard</h3>
+							<p style="flex-grow: 1;">設定 GA4 追蹤架構、打造視覺化成效儀表板與廣告 KPI 評估，以數據為基礎隨時優化投資報酬率。</p>
+							<ul class="actions" style="margin-top: 1.5em;">
+								<li><a href="blog/index.html" class="button primary small">查看數據分析案例</a></li>
+							</ul>
+						</section>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- 4. 合作效益 (原：從這您能得到什麼成果？) -->
+		<section id="outcomes" class="wrapper style1 special fade-up">
+			<div class="container">
+				<header class="major">
+					<h2>合作能為您帶來的效益</h2>
+					<p>以數據與策略為核心，為企業建立永續成長的行銷引擎</p>
 				</header>
 				<div class="box alt">
 					<div class="row gtr-uniform">
 						<section class="col-4 col-6-medium col-12-xsmall">
+							<span class="icon solid alt major fa-search"></span>
+							<h3>提升自然流量 SEO × GEO</h3>
+							<p>佈局關鍵字與 AI 搜尋曝光，以低成本長期獲取精準商機。</p>
+						</section>
+						<section class="col-4 col-6-medium col-12-xsmall">
+							<span class="icon solid alt major fa-users"></span>
+							<h3>精準開發潛在客戶</h3>
+							<p>建立穩定 B2B 名單獲取機制，有效篩選高品質潛在買家。</p>
+						</section>
+						<section class="col-4 col-6-medium col-12-xsmall">
+							<span class="icon solid alt major fa-bullhorn"></span>
+							<h3>明確市場定位 GTM</h3>
+							<p>確立產品溝通優勢與策略方向，確保行銷資源效益最大化。</p>
+						</section>
+						<section class="col-4 col-12-medium col-12-xsmall">
 							<span class="icon solid alt major fa-chart-line"></span>
-							<h3>B2B 潛在客戶開發</h3>
-							<p>SEO 搜尋優化、GEO (AI Search)、Landing Page、Email Marketing、Meta Ads 整合流程。</p>
-						</section>
-						<section class="col-4 col-6-medium col-12-xsmall">
-							<span class="icon solid alt major fa-file-alt"></span>
-							<h3>內容行銷與業務素材</h3>
-							<p>將複雜的產品技術轉化為具有說服力的網站文案、產品型錄、Sales Deck、Case Study 與 EDM。</p>
-						</section>
-						<section class="col-4 col-6-medium col-12-xsmall">
-							<span class="icon solid alt major fa-chart-pie"></span>
-							<h3>行銷數據分析</h3>
-							<p>利用 GA4、Dashboard、Campaign Reporting 與網站流量分析，追蹤並優化每一個行銷環節。</p>
-						</section>
-						<section class="col-4 col-6-medium col-12-xsmall">
-							<span class="icon solid alt major fa-bullseye"></span>
-							<h3>Go-to-Market 行銷策略</h3>
-							<p>產品定位 (Product Positioning)、行銷漏斗設計、Campaign Planning 與 KPI 設計。</p>
+							<h3>數據驅動商業決策</h3>
+							<p>透過 GA4 與 Dashboard 動態分析，即時調整最佳行銷組合。</p>
 						</section>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Portfolio (Landed 交替圖文 Spotlight 區塊) -->
-		<section id="portfolio" class="wrapper style2">
-			<div class="container">
-				<header class="major">
-					<h2>B2B 行銷案例</h2>
-					<p>從產品上市、SEO、Lead Generation 到數據分析的實際執行經驗</p>
-				</header>
-			</div>
-
-			<!-- Case 1 -->
-			<section class="spotlight style2 left">
-				<span class="image fit main"><img src="../images/project01.jpg" alt="B2B 產品上市策略" /></span>
-				<div class="content">
-					<header>
-						<p>Go-to-Market</p>
-						<h3>B2B 產品上市策略</h3>
-					</header>
-					<p>協助科技產品建立產品定位、市場分析與上市策略，讓業務與行銷具備一致溝通語言。</p>
-				</div>
-			</section>
-
-			<!-- Case 2 -->
-			<section class="spotlight style3 right">
-				<span class="image fit main"><img src="../images/project02.jpg" alt="SEO 與 AI Search Optimization" /></span>
-				<div class="content">
-					<header>
-						<p>SEO × GEO</p>
-						<h3>SEO 與 AI Search Optimization</h3>
-					</header>
-					<p>透過關鍵字研究、網站內容架構優化與 AI Search (GEO) 佈局，大幅提升自然流量與品牌權威度。</p>
-				</div>
-			</section>
-
-			<!-- Case 3 -->
-			<section class="spotlight style2 left">
-				<span class="image fit main"><img src="../images/project03.jpg" alt="B2B 潛在客戶開發" /></span>
-				<div class="content">
-					<header>
-						<p>Lead Generation</p>
-						<h3>B2B 潛在客戶開發</h3>
-					</header>
-					<p>結合 SEO、高轉換 Landing Page、內容行銷與自動化 Email 流程，打造持續穩定的商機開發管道。</p>
-				</div>
-			</section>
-		</section>
-
-		<!-- Blog Section -->
-		<section id="blog" class="wrapper style1 special fade-up">
-			<div class="container">
-				<header class="major">
-					<h2>B2B 行銷策略全破解</h2>
-					<p>分享 SEO、GEO、Lead Generation、Go-to-Market、GA4 等實務觀點</p>
-				</header>
-				<!-- 動態渲染文章區塊 -->
-				<div class="row gtr-uniform" id="homepageBlog"></div>
-			</div>
-		</section>
-
-		<!-- Contact (Landed 表單區塊) -->
+		<!-- 5. 聯絡我 (Contact) -->
 		<section id="contact" class="wrapper style2 special fade-up">
 			<div class="container">
 				<header class="major">
 					<h2>聯絡我</h2>
-					<p>歡迎填寫需求表單或透過 Email 與我聯繫，通常於 1–2 個工作天內回覆。</p>
+					<p>歡迎填寫下方需求表單或透過 Email 直接聯繫，通常於 1–2 個工作天內回覆。</p>
 				</header>
 				
 				<div class="row gtr-uniform">
-					<!-- 左側表單 -->
-					<div class="col-8 col-12-medium">
+					<!-- 左側表單 (文字已修復為高對比度清晰視覺) -->
+					<div class="col-7 col-12-medium">
 						<form action="https://formspree.io/f/maeweleq" method="POST">
 							<input type="hidden" name="_next" value="https://tzjoyce.github.io/zh/thank-you.html">
 							<input type="hidden" name="_subject" value="Website Inquiry">
@@ -267,30 +360,28 @@
 
 							<div class="row gtr-uniform">
 								<div class="col-6 col-12-xsmall">
-									<input type="text" name="name" id="name" placeholder="姓名" required />
+									<input type="text" name="name" id="name" placeholder="您的姓名 *" required />
 								</div>
 								<div class="col-6 col-12-xsmall">
-									<input type="text" name="Company" id="Company" placeholder="公司名稱" required />
+									<input type="text" name="Company" id="Company" placeholder="公司名稱 *" required />
 								</div>
 								<div class="col-12">
-									<input type="email" name="email" id="email" placeholder="電子郵件" required />
+									<input type="email" name="email" id="email" placeholder="電子郵件地址 *" required />
 								</div>
 								<div class="col-6 col-12-xsmall">
 									<select name="project_type" id="project_type" required>
-										<option value="" selected disabled>請選擇合作需求</option>
-										<option value="Lead Generation">增加潛在客戶（Lead Generation）</option>
-										<option value="Website Traffic">提升網站流量</option>
-										<option value="SEO">SEO 搜尋優化</option>
-										<option value="Go-to-Market">新產品上市規劃（Go-to-Market）</option>
-										<option value="Conversion">提高網站轉換率</option>
-										<option value="Content Marketing">行銷內容製作</option>
-										<option value="Marketing Strategy">行銷策略規劃</option>
-										<option value="Other">其他</option>
+										<option value="" selected disabled>請選擇合作需求 *</option>
+										<option value="Lead Generation">潛在客戶開發 (Lead Generation)</option>
+										<option value="Go-to-Market">新產品上市規劃 (Go-to-Market)</option>
+										<option value="SEO">SEO / GEO 搜尋優化</option>
+										<option value="Content Marketing">內容行銷與銷售素材撰寫</option>
+										<option value="Marketing Analytics">GA4 與數據成效分析</option>
+										<option value="Other">其他專案諮詢</option>
 									</select>
 								</div>
 								<div class="col-6 col-12-xsmall">
 									<select name="budget" id="budget" required>
-										<option value="" selected disabled>請選擇預算範圍</option>
+										<option value="" selected disabled>請選擇預算範圍 *</option>
 										<option value="Under 3000">TWD 3,000 元以下</option>
 										<option value="3000-8000">TWD 3,000–8,000 元</option>
 										<option value="8000-20000">TWD 8,000–20,000 元</option>
@@ -300,28 +391,50 @@
 									</select>
 								</div>
 								<div class="col-12">
-									<textarea name="Project_Description" id="Project_Description" placeholder="請簡單描述您的專案需求、目前遇到的問題或希望達成的目標。" rows="6"></textarea>
+									<textarea name="Project_Description" id="Project_Description" placeholder="請簡單描述您的專案需求、目前遇到的瓶頸或預計達成的目標..." rows="5"></textarea>
 								</div>
 								<div class="col-12">
 									<ul class="actions">
-										<li><input type="submit" value="送出訊息" class="primary" /></li>
+										<li><input type="submit" value="送出諮詢需求" class="primary large" /></li>
 									</ul>
 								</div>
 							</div>
 						</form>
 					</div>
 
-					<!-- 右側資訊與 FAQ -->
-					<div class="col-4 col-12-medium text-left">
-						<h3>📧 Email</h3>
-						<p><a href="mailto:joycetcc98@gmail.com">joycetcc98@gmail.com</a></p>
+					<!-- 右側資訊與 FAQ（質感商務排版，無 Emoji） -->
+					<div class="col-5 col-12-medium text-left">
+						
+						<!-- Email -->
+						<div class="contact-info-card">
+							<h3><i class="icon solid fa-envelope"></i> 電子郵件聯繫</h3>
+							<p style="margin-bottom: 0;"><a href="mailto:joycetcc98@gmail.com" style="color: #ffffff; text-decoration: underline;">joycetcc98@gmail.com</a></p>
+						</div>
 
-						<h3>🤝 合作流程</h3>
-						<p>① 填寫需求表單<br>② Email 初步討論<br>③ 提供建議與報價<br>④ 專案執行</p>
+						<!-- 合作流程 -->
+						<div class="contact-info-card">
+							<h3><i class="icon solid fa-tasks"></i> 專案合作流程</h3>
+							<ul class="process-list">
+								<li>填寫線上需求表單</li>
+								<li>Email 初步需求確認與評估</li>
+								<li>提供專案建議書與合作報價</li>
+								<li>簽訂合約並正式啟動執行</li>
+							</ul>
+						</div>
 
-						<h3>常見問題 FAQ</h3>
-						<p><strong>Q: 提供英文專案嗎？</strong><br>可以，包含英文網站、SEO 及 Sales Deck。</p>
-						<p><strong>Q: 可簽 NDA 保密協議嗎？</strong><br>可以，企業專案皆可配合。</p>
+						<!-- 常見問題 -->
+						<div class="contact-info-card">
+							<h3><i class="icon solid fa-question-circle"></i> 常見問題</h3>
+							<div class="faq-item">
+								<strong>Q: 是否支援全英文專案？</strong>
+								<p style="font-size: 0.9em; margin: 0;">可以，包含英文網站內容、SEO 佈局與英文 Sales Deck 撰寫。</p>
+							</div>
+							<div class="faq-item" style="margin-bottom: 0;">
+								<strong>Q: 是否可配合簽署保密協議 (NDA)？</strong>
+								<p style="font-size: 0.9em; margin: 0;">可以，企業合作皆可配合簽署標準保密協議。</p>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -342,7 +455,7 @@
 
 	</div>
 
-	<!-- Scripts (更新為 Landed 官方對應 JS 腳本) -->
+	<!-- Scripts -->
 	<script src="../assets/js/jquery.min.js"></script>
 	<script src="../assets/js/jquery.scrollex.min.js"></script>
 	<script src="../assets/js/jquery.scrolly.min.js"></script>
@@ -351,7 +464,7 @@
 	<script src="../assets/js/util.js"></script>
 	<script src="../assets/js/main.js"></script>
 
-	<!-- 自訂部落格功能路徑修正 -->
+	<!-- 自訂部落格功能 -->
 	<script src="./blog/blog-data.js"></script>
 	<script src="./blog/homepage-blog.js"></script>
 
