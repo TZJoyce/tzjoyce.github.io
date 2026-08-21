@@ -5630,3 +5630,51 @@ grid-template-columns:1fr;
 }
 
 }
+
+/* Category Filter */
+
+.category-filter{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:1rem;
+
+margin:2rem 0 3rem;
+
+}
+
+.category-btn{
+
+background:#fff;
+
+border:1px solid #ddd;
+
+border-radius:40px;
+
+padding:.75rem 1.5rem;
+
+cursor:pointer;
+
+transition:.3s;
+
+font-size:.9rem;
+
+}
+
+.category-btn:hover{
+
+background:#6b63ff;
+
+color:#fff;
+
+}
+
+.category-btn.active{
+
+background:#6b63ff;
+
+color:#fff;
+
+}
