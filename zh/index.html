@@ -41,29 +41,30 @@
 
 	<!-- 自訂樣式優化 -->
 	<style>
-		/* 1. Header 固定置頂 */
-		#header {
+		/* 1. Header & 手機版 TitleBar 固定置頂修復 */
+		#header, #titleBar {
 			position: fixed !important;
 			top: 0 !important;
 			left: 0 !important;
 			width: 100% !important;
 			z-index: 10000 !important;
-			background: rgba(30, 32, 44, 0.95) !important;
+			background: rgba(30, 32, 44, 0.96) !important;
 			backdrop-filter: blur(8px);
 			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 		}
 		body {
-			padding-top: 3.5em;
+			padding-top: 3.2em;
 		}
 
-		/* 2. Hero (Banner) 留白壓縮與遮罩 */
+		/* 2. Hero (Banner) 頂部留白徹底修復與背景遮罩 */
 		#banner {
 			background-attachment: fixed;
 			background-image: linear-gradient(rgba(30, 32, 44, 0.65), rgba(30, 32, 44, 0.65)), url('../images/banner.jpg');
 			background-position: center center;
 			background-size: cover;
 			position: relative;
-			padding: 4.5em 0 3em 0 !important; /* 壓縮上下空白 */
+			padding: 3.5em 0 3em 0 !important; /* 精確控制頂部距離 */
+			margin-top: 0 !important;
 		}
 		#banner .content {
 			text-align: center !important;
@@ -84,10 +85,10 @@
 			margin-top: 1.5em;
 		}
 
-		/* 手機版 Hero 按鈕優化 */
+		/* 手機版 Hero 與按鈕適配 */
 		@media screen and (max-width: 736px) {
 			#banner {
-				padding: 3em 1em 2em 1em !important;
+				padding: 2.5em 1em 2em 1em !important;
 				background-attachment: scroll;
 			}
 			#banner .actions {
@@ -101,23 +102,73 @@
 				padding: 0 1em !important;
 				height: 2.8em !important;
 				line-height: 2.8em !important;
-				font-size: 1.2rem !important;
+				font-size: 0.9rem !important;
 			}
 		}
 
-		/* 3. 浮動側邊按鈕 (Top & 立即聯繫) */
+		/* 3. 新版圖示 (Icon) 質感樣式：去除圓圈，採用極簡線條感 */
+		.custom-service-card {
+			background: rgba(255,255,255,0.03);
+			padding: 2.2em 2em;
+			border-radius: 10px;
+			border: 1px solid rgba(255,255,255,0.1);
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+		}
+		.custom-service-card:hover {
+			border-color: rgba(228, 76, 101, 0.5);
+			background: rgba(255,255,255,0.05);
+			transform: translateY(-4px);
+		}
+		.card-icon-header {
+			display: flex;
+			align-items: center;
+			gap: 0.8em;
+			margin-bottom: 0.8em;
+		}
+		.card-icon-header i {
+			font-size: 1.6em;
+			color: #e44c65;
+		}
+		.card-icon-header h3 {
+			margin: 0;
+			font-size: 1.25em;
+		}
+
+		/* 合作效益無圓圈 Icon 設計 */
+		.outcome-item-card {
+			padding: 1.5em 1em;
+			border-radius: 8px;
+			background: rgba(255, 255, 255, 0.02);
+			border: 1px solid rgba(255, 255, 255, 0.06);
+			height: 100%;
+			transition: background 0.3s ease;
+		}
+		.outcome-item-card:hover {
+			background: rgba(255, 255, 255, 0.04);
+		}
+		.outcome-item-card i.outcome-icon {
+			font-size: 2.2em;
+			color: #e44c65;
+			display: inline-block;
+			margin-bottom: 0.4em;
+		}
+
+		/* 4. 浮動側邊按鈕 (Top & 立即聯繫) */
 		.floating-btn-group {
 			position: fixed;
-			bottom: 30px;
-			right: 25px;
+			bottom: 25px;
+			right: 20px;
 			z-index: 9999;
 			display: flex;
 			flex-direction: column;
 			gap: 10px;
 		}
 		.floating-btn {
-			width: 46px;
-			height: 46px;
+			width: 44px;
+			height: 44px;
 			border-radius: 50%;
 			background: rgba(228, 76, 101, 0.9);
 			color: #ffffff !important;
@@ -128,7 +179,7 @@
 			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 			transition: all 0.3s ease;
 			border: 1px solid rgba(255, 255, 255, 0.2);
-			font-size: 1.1rem;
+			font-size: 1.05rem;
 		}
 		.floating-btn:hover {
 			background: #e44c65;
@@ -143,7 +194,7 @@
 			background: #27293d;
 		}
 
-		/* 4. 手機版內文清晰度提升 */
+		/* 5. 手機版內文清晰度提升 */
 		p, li, span {
 			color: rgba(255, 255, 255, 0.88) !important;
 			line-height: 1.75 !important;
@@ -156,7 +207,7 @@
 			}
 		}
 
-		/* 5. 圖片 Hover 效果 */
+		/* 6. 關於我圖片 Hover 效果 */
 		.spotlight .image {
 			overflow: hidden;
 			border-radius: 8px;
@@ -172,7 +223,7 @@
 			filter: brightness(1.05);
 		}
 
-		/* 6. 表單與下拉選單 Hint UI 設計 */
+		/* 7. 表單與下拉選單 Hint UI 設計 */
 		form input[type="text"],
 		form input[type="email"],
 		form select,
@@ -184,7 +235,6 @@
 			border-radius: 6px;
 			padding: 0.6em 1em;
 		}
-		/* 下拉選單圖示 Hint (右下角/右側箭頭) */
 		form select {
 			appearance: none;
 			-webkit-appearance: none;
@@ -208,7 +258,7 @@
 			background: rgba(255, 255, 255, 0.12) !important;
 		}
 
-		/* 7. FAQ 折疊手風琴樣式 */
+		/* 8. FAQ 手風琴樣式 */
 		details.faq-accordion {
 			background: rgba(255, 255, 255, 0.03);
 			border: 1px solid rgba(255, 255, 255, 0.1);
@@ -252,35 +302,6 @@
 			color: rgba(255, 255, 255, 0.8) !important;
 		}
 
-		/* 8. 流程與精簡卡片樣式 */
-		.simple-contact-card {
-			background: rgba(255, 255, 255, 0.02);
-			border: 1px solid rgba(255, 255, 255, 0.08);
-			border-radius: 8px;
-			padding: 1.2em 1.5em;
-			text-align: left;
-		}
-		.process-list {
-			list-style: none;
-			padding-left: 0;
-			margin: 0;
-			display: flex;
-			flex-wrap: wrap;
-			gap: 0.8em 1.5em;
-		}
-		.process-list li {
-			position: relative;
-			padding-left: 1.2em;
-			font-size: 0.9em;
-		}
-		.process-list li::before {
-			content: "→";
-			position: absolute;
-			left: 0;
-			color: #e44c65;
-		}
-
-		/* 9. 表單按鈕大小優化 */
 		.form-submit-btn {
 			height: 3em !important;
 			line-height: 3em !important;
@@ -338,7 +359,7 @@
 			</nav>
 		</header>
 
-		<!-- Banner (Hero 區塊 - 縮減空白與優化按鈕) -->
+		<!-- Banner (Hero 區塊) -->
 		<section id="banner">
 			<div class="content">
 				<header>
@@ -386,7 +407,7 @@
 			</div>
 		</section>
 
-		<!-- 3. 服務項目與作品案例 (整合區塊) -->
+		<!-- 3. 服務項目與作品案例 (無圓圈純淬線條 Icon) -->
 		<section id="services-portfolio" class="wrapper style2 fade-up">
 			<div class="container">
 				<header class="major special">
@@ -396,132 +417,114 @@
 				<div class="row gtr-uniform">
 					
 					<div class="col-6 col-12-medium">
-						<section class="box alt" style="background: rgba(255,255,255,0.03); padding: 2em; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); height: 100%; display: flex; flex-direction: column;">
-							<span class="icon solid alt major fa-users" style="color: #e44c65;"></span>
-							<h3>B2B 潛在客戶開發 (Lead Generation)</h3>
+						<div class="custom-service-card">
+							<div class="card-icon-header">
+								<i class="icon solid fa-users"></i>
+								<h3>B2B 潛在客戶開發 (Lead Gen)</h3>
+							</div>
 							<p style="flex-grow: 1;">整合 SEO、GEO (AI 搜尋優化)、高轉換 Landing Page 與自動化 Email 流程，建立穩定且高品質的 B2B 商機開發管道。</p>
-							<ul class="actions" style="margin-top: 1.5em;">
+							<ul class="actions" style="margin-top: 1.2em;">
 								<li><a href="blog/index.html" class="button primary small">查看 Lead Gen 相關案例</a></li>
 							</ul>
-						</section>
+						</div>
 					</div>
 
 					<div class="col-6 col-12-medium">
-						<section class="box alt" style="background: rgba(255,255,255,0.03); padding: 2em; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); height: 100%; display: flex; flex-direction: column;">
-							<span class="icon solid alt major fa-bullseye" style="color: #e44c65;"></span>
-							<h3>Go-to-Market 與產品上市策略</h3>
+						<div class="custom-service-card">
+							<div class="card-icon-header">
+								<i class="icon solid fa-bullseye"></i>
+								<h3>Go-to-Market 與產品上市策略</h3>
+							</div>
 							<p style="flex-grow: 1;">協助科技與製造業產品釐清定位 (Positioning)、擬定進入市場策略與 Campaign 規劃，讓行銷與業務溝通語言保持一致。</p>
-							<ul class="actions" style="margin-top: 1.5em;">
+							<ul class="actions" style="margin-top: 1.2em;">
 								<li><a href="blog/index.html" class="button primary small">查看 GTM 上市案例</a></li>
 							</ul>
-						</section>
+						</div>
 					</div>
 
 					<div class="col-6 col-12-medium">
-						<section class="box alt" style="background: rgba(255,255,255,0.03); padding: 2em; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); height: 100%; display: flex; flex-direction: column;">
-							<span class="icon solid alt major fa-file-alt" style="color: #e44c65;"></span>
-							<h3>專業內容行銷與業務銷售素材</h3>
+						<div class="custom-service-card">
+							<div class="card-icon-header">
+								<i class="icon solid fa-file-alt"></i>
+								<h3>專業內容行銷與業務銷售素材</h3>
+							</div>
 							<p style="flex-grow: 1;">將複雜產品與技術轉化為具說服力的行銷語言，提供 SEO 文章、Sales Deck、產品型錄、新聞稿與客戶成功案例撰寫。</p>
-							<ul class="actions" style="margin-top: 1.5em;">
+							<ul class="actions" style="margin-top: 1.2em;">
 								<li><a href="blog/index.html" class="button primary small">查看內容產出案例</a></li>
 							</ul>
-						</section>
+						</div>
 					</div>
 
 					<div class="col-6 col-12-medium">
-						<section class="box alt" style="background: rgba(255,255,255,0.03); padding: 2em; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); height: 100%; display: flex; flex-direction: column;">
-							<span class="icon solid alt major fa-chart-pie" style="color: #e44c65;"></span>
-							<h3>GA4 與行銷數據分析 Dashboard</h3>
+						<div class="custom-service-card">
+							<div class="card-icon-header">
+								<i class="icon solid fa-chart-pie"></i>
+								<h3>GA4 與行銷數據分析 Dashboard</h3>
+							</div>
 							<p style="flex-grow: 1;">設定 GA4 追蹤架構、打造視覺化成效儀表板與廣告 KPI 評估，以數據為基礎隨時優化投資報酬率。</p>
-							<ul class="actions" style="margin-top: 1.5em;">
+							<ul class="actions" style="margin-top: 1.2em;">
 								<li><a href="blog/index.html" class="button primary small">查看數據分析案例</a></li>
 							</ul>
-						</section>
+						</div>
 					</div>
 
 				</div>
 			</div>
 		</section>
 
-		<!-- 4. 合作效益 -->
+		<!-- 4. 合作效益 (極簡無圓圈 Icon) -->
 		<section id="outcomes" class="wrapper style1 special fade-up">
 			<div class="container">
 				<header class="major">
 					<h2>合作能為您帶來的效益</h2>
 					<p>以數據與策略為核心，為企業建立永續成長的行銷引擎</p>
 				</header>
-				<div class="box alt">
-					<div class="row gtr-uniform">
-						<section class="col-4 col-6-medium col-12-xsmall">
-							<span class="icon solid alt major fa-search"></span>
-							<h3>提升自然流量 SEO × GEO</h3>
-							<p>佈局關鍵字與 AI 搜尋曝光，以低成本長期獲取精準商機。</p>
-						</section>
-						<section class="col-4 col-6-medium col-12-xsmall">
-							<span class="icon solid alt major fa-users"></span>
-							<h3>精準開發潛在客戶</h3>
-							<p>建立穩定 B2B 名單獲取機制，有效篩選高品質潛在買家。</p>
-						</section>
-						<section class="col-4 col-6-medium col-12-xsmall">
-							<span class="icon solid alt major fa-bullhorn"></span>
-							<h3>明確市場定位 GTM</h3>
-							<p>確立產品溝通優勢與策略方向，確保行銷資源效益最大化。</p>
-						</section>
-						<section class="col-4 col-12-medium col-12-xsmall">
-							<span class="icon solid alt major fa-chart-line"></span>
-							<h3>數據驅動商業決策</h3>
-							<p>透過 GA4 與 Dashboard 動態分析，即時調整最佳行銷組合。</p>
-						</section>
+				<div class="row gtr-uniform">
+					<div class="col-3 col-6-medium col-12-xsmall">
+						<div class="outcome-item-card">
+							<i class="icon solid fa-search outcome-icon"></i>
+							<h3>提升自然流量</h3>
+							<p style="font-size: 0.9em;">佈局 SEO × GEO，以低成本長期獲取精準商機。</p>
+						</div>
+					</div>
+					<div class="col-3 col-6-medium col-12-xsmall">
+						<div class="outcome-item-card">
+							<i class="icon solid fa-filter outcome-icon"></i>
+							<h3>開發潛在客戶</h3>
+							<p style="font-size: 0.9em;">建立名單獲取機制，有效篩選高品質潛在買家。</p>
+						</div>
+					</div>
+					<div class="col-3 col-6-medium col-12-xsmall">
+						<div class="outcome-item-card">
+							<i class="icon solid fa-bullhorn outcome-icon"></i>
+							<h3>明確市場定位</h3>
+							<p style="font-size: 0.9em;">確立產品溝通優勢，確保行銷資源效益最大化。</p>
+						</div>
+					</div>
+					<div class="col-3 col-6-medium col-12-xsmall">
+						<div class="outcome-item-card">
+							<i class="icon solid fa-chart-line outcome-icon"></i>
+							<h3>數據驅動決策</h3>
+							<p style="font-size: 0.9em;">動態數據分析，隨時調整最佳行銷組合。</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- 5. 聯絡我 (Contact) - 緊湊優化版 -->
-		<section id="contact" class="wrapper style2 special fade-up" style="padding: 4em 0 3em 0;">
+		<!-- 5. 聯絡我 (Contact) - 優先顯示表單，FAQ 下移 -->
+		<section id="contact" class="wrapper style2 special fade-up" style="padding: 3.5em 0 3em 0;">
 			<div class="container" style="max-width: 860px;">
 				<header class="major" style="margin-bottom: 1.5em;">
 					<h2>預約專案諮詢 / 聯絡我</h2>
-					
-					<!-- 4. 極簡化 Email 顯示 -->
 					<p style="margin-bottom: 0.5em;">
 						直接來信聯繫：<a href="mailto:joycetcc98@gmail.com" style="color: #ffffff; text-decoration: underline; font-weight: bold;">joycetcc98@gmail.com</a>
 						<span style="font-size: 0.85em; opacity: 0.7; display: inline-block; margin-left: 0.5em;">（通常於 1–2 個工作天內回覆）</span>
 					</p>
 				</header>
 
-				<!-- 簡短流程與 FAQ 折疊區 -->
-				<div class="row gtr-uniform" style="margin-bottom: 1.5em;">
-					
-					<!-- 簡短流程 -->
-					<div class="col-12">
-						<div class="simple-contact-card">
-							<strong style="color: #ffffff; font-size: 0.9em; display: block; margin-bottom: 0.4em;">【合作流程】</strong>
-							<ul class="process-list">
-								<li>填寫諮詢表單</li>
-								<li>Email 需求與範疇確認</li>
-								<li>提供建議書與報價</li>
-								<li>簽約並正式啟動專案</li>
-							</ul>
-						</div>
-					</div>
-
-					<!-- 5. FAQ 手風琴展開 -->
-					<div class="col-12" style="margin-top: 0.8em;">
-						<details class="faq-accordion">
-							<summary>Q: 是否支援全英文專案？</summary>
-							<p>可以，包含英文網站內容撰寫、跨境 SEO 佈局與英文 Sales Deck / 產品型錄製作。</p>
-						</details>
-						<details class="faq-accordion">
-							<summary>Q: 是否可配合簽署保密協議 (NDA)？</summary>
-							<p>可以，企業專案合作皆可配合簽署標準保密條款，保障商業資料安全。</p>
-						</details>
-					</div>
-
-				</div>
-
-				<!-- 6. 填表區域：壓縮欄位空白 -->
-				<div class="box" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.12); padding: 2em 1.8em; border-radius: 10px; text-align: left;">
+				<!-- 主要表單區域 -->
+				<div class="box" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.12); padding: 2em 1.8em; border-radius: 10px; text-align: left; margin-bottom: 2.5em;">
 					
 					<form action="https://formspree.io/f/maeweleq" method="POST">
 						<input type="hidden" name="_next" value="https://tzjoyce.github.io/zh/thank-you.html">
@@ -540,7 +543,6 @@
 								<input type="email" name="email" id="email" placeholder="電子郵件地址 *" required />
 							</div>
 
-							<!-- 7. 下拉選單 Hint UI -->
 							<div class="col-6 col-12-xsmall" style="padding-top: 1em;">
 								<select name="project_type" id="project_type" required>
 									<option value="" selected disabled>預計合作項目 *</option>
@@ -568,7 +570,6 @@
 								<textarea name="Project_Description" id="Project_Description" placeholder="請簡單說明您的產品/服務類型、目前遇到的行銷挑戰，或是期望達成的目標..." rows="4"></textarea>
 							</div>
 
-							<!-- 8. 表單提交按鈕適中化 -->
 							<div class="col-12" style="text-align: center; padding-top: 1.5em;">
 								<ul class="actions special" style="justify-content: center; margin: 0;">
 									<li><input type="submit" value="送出諮詢需求" class="primary form-submit-btn" /></li>
@@ -579,10 +580,26 @@
 					</form>
 
 				</div>
+
+				<!-- FAQ 常見問題 (移至填表下方 + 獨立標題) -->
+				<div style="text-align: left; max-width: 860px; margin: 0 auto;">
+					<h3 style="color: #ffffff; font-size: 1.2em; margin-bottom: 0.8em; display: flex; align-items: center; gap: 0.5em;">
+						<i class="icon solid fa-question-circle" style="color: #e44c65;"></i> 常見問題 (FAQ)
+					</h3>
+					<details class="faq-accordion">
+						<summary>Q: 是否支援全英文專案？</summary>
+						<p>可以，包含英文網站內容撰寫、跨境 SEO 佈局與英文 Sales Deck / 產品型錄製作。</p>
+					</details>
+					<details class="faq-accordion">
+						<summary>Q: 是否可配合簽署保密協議 (NDA)？</summary>
+						<p>可以，企業專案合作皆可配合簽署標準保密條款，保障商業資料與機密安全。</p>
+					</details>
+				</div>
+
 			</div>
 		</section>
 
-		<!-- Footer (9. Social Media 擴充圖示與連結) -->
+		<!-- Footer -->
 		<footer id="footer">
 			<ul class="icons">
 				<li><a href="mailto:joycetcc98@gmail.com" class="icon solid alt fa-envelope" target="_blank" rel="noopener noreferrer"><span class="label">Email</span></a></li>
@@ -612,6 +629,14 @@
 	<!-- 自訂部落格功能 -->
 	<script src="./blog/blog-data.js"></script>
 	<script src="./blog/homepage-blog.js"></script>
+
+	<!-- 自動置頂防空白腳本 -->
+	<script>
+		if ('scrollRestoration' in history) {
+			history.scrollRestoration = 'manual';
+		}
+		window.scrollTo(0, 0);
+	</script>
 
 </body>
 </html>
