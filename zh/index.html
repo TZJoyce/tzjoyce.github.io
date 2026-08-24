@@ -106,10 +106,10 @@
 			}
 		}
 
-		/* 3. 服務案例卡片優化：高度與按鈕間距調緊 */
+		/* 3. 服務案例卡片：維持緊湊佈局與原版質感 */
 		.custom-service-card {
-			background: rgba(255, 255, 255, 0.04);
-			padding: 1.5em 1.5em 1.2em 1.5em; /* 緊湊內距 */
+			background: rgba(255, 255, 255, 0.03);
+			padding: 1.5em 1.5em 1.2em 1.5em;
 			border-radius: 10px;
 			border: 1px solid rgba(255, 255, 255, 0.12);
 			height: 100%;
@@ -119,7 +119,7 @@
 		}
 		.custom-service-card:hover {
 			border-color: rgba(228, 76, 101, 0.6);
-			background: rgba(255, 255, 255, 0.07);
+			background: rgba(255, 255, 255, 0.06);
 			transform: translateY(-3px);
 		}
 		.card-icon-header {
@@ -140,11 +140,10 @@
 		.custom-service-card p {
 			margin-bottom: 0.8em !important;
 			font-size: 0.95em !important;
-			line-height: 1.6 !important;
-			color: rgba(255, 255, 255, 0.95) !important;
+			line-height: 1.65 !important;
 		}
 		.custom-service-card .card-action-wrap {
-			margin-top: auto; /* 將按鈕貼緊底部 */
+			margin-top: auto;
 			padding-top: 0.4em;
 		}
 		.custom-service-card .button.small {
@@ -174,42 +173,39 @@
 			margin-bottom: 0.3em;
 		}
 
-		/* 4. 全局與紅色/深色背景下的 <p> 小字清晰度強化 */
+		/* 4. 折衷方案：恢復原版字型質感，但提高白色對比度避免模糊 */
 		p, li, span, small {
-			color: rgba(255, 255, 255, 0.95) !important; /* 提升對比度至接近純白 */
-			line-height: 1.7 !important;
-			font-weight: 400;
+			color: rgba(255, 255, 255, 0.92) !important; /* 不失細緻度的清晰純白 */
+			line-height: 1.75 !important;
+			font-weight: 300 !important; /* 恢復原版優雅的纖細字體 */
 		}
 
-		/* 紅色按鈕與紅色背景區塊內的文字強制純白與清晰 */
+		/* 紅色區塊與按鈕內文 */
 		.button.primary, 
 		input[type="submit"].primary,
 		.style2,
 		.style2 p,
-		.style2 li,
-		.wrapper.style2 p {
+		.style2 li {
 			color: #ffffff !important;
-			text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* 加入微陰影提升辨識度 */
 		}
 
-		/* 表格、表單框內說明文字與 Option */
+		/* 表格與表單輸入框內文 */
 		form input[type="text"],
 		form input[type="email"],
 		form select,
 		form textarea,
-		table input,
 		table td,
 		table th {
 			color: #ffffff !important;
-			background: rgba(255, 255, 255, 0.1) !important;
-			border: 1px solid rgba(255, 255, 255, 0.3) !important;
+			background: rgba(255, 255, 255, 0.08) !important;
+			border: 1px solid rgba(255, 255, 255, 0.25) !important;
 			font-size: 0.95rem !important;
 			border-radius: 6px;
 			padding: 0.6em 1em;
 		}
 		form input::placeholder,
 		form textarea::placeholder {
-			color: rgba(255, 255, 255, 0.75) !important; /* Placeholder 不再昏暗 */
+			color: rgba(255, 255, 255, 0.6) !important;
 		}
 		form select option {
 			background-color: #27293d !important;
@@ -218,13 +214,59 @@
 
 		@media screen and (max-width: 736px) {
 			p, li {
-				font-size: 1rem !important;
-				color: #ffffff !important;
+				font-size: 0.98rem !important;
+				color: rgba(255, 255, 255, 0.95) !important;
 				line-height: 1.75 !important;
 			}
 		}
 
-		/* 5. 浮動側邊按鈕 */
+		/* 5. FAQ 手風琴樣式：僅解答處獨佔「粗體」 */
+		details.faq-accordion {
+			background: rgba(255, 255, 255, 0.04);
+			border: 1px solid rgba(255, 255, 255, 0.12);
+			border-radius: 6px;
+			margin-bottom: 0.8em;
+			padding: 0.8em 1.2em;
+			text-align: left;
+			transition: background 0.3s ease;
+		}
+		details.faq-accordion[open] {
+			background: rgba(255, 255, 255, 0.07);
+			border-color: rgba(228, 76, 101, 0.5);
+		}
+		details.faq-accordion summary {
+			font-weight: 600 !important;
+			color: #ffffff !important;
+			cursor: pointer;
+			outline: none;
+			list-style: none;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 0.98em;
+		}
+		details.faq-accordion summary::-webkit-details-marker {
+			display: none;
+		}
+		details.faq-accordion summary::after {
+			content: "＋";
+			color: #e44c65;
+			font-size: 1.1em;
+			transition: transform 0.3s ease;
+		}
+		details.faq-accordion[open] summary::after {
+			content: "－";
+		}
+		/* FAQ 解答：單獨設為粗體與純白 */
+		details.faq-accordion p {
+			margin-top: 0.6em !important;
+			margin-bottom: 0 !important;
+			font-size: 0.93em !important;
+			font-weight: 600 !important; /* 單獨維持粗體 */
+			color: #ffffff !important; /* 完全純白 */
+		}
+
+		/* 6. 浮動側邊按鈕 */
 		.floating-btn-group {
 			position: fixed;
 			bottom: 25px;
@@ -257,50 +299,6 @@
 		.floating-btn.contact-btn {
 			background: rgba(39, 41, 61, 0.9);
 			border-color: rgba(228, 76, 101, 0.6);
-		}
-
-		/* 6. FAQ 手風琴樣式 */
-		details.faq-accordion {
-			background: rgba(255, 255, 255, 0.05);
-			border: 1px solid rgba(255, 255, 255, 0.15);
-			border-radius: 6px;
-			margin-bottom: 0.8em;
-			padding: 0.8em 1.2em;
-			text-align: left;
-			transition: background 0.3s ease;
-		}
-		details.faq-accordion[open] {
-			background: rgba(255, 255, 255, 0.08);
-			border-color: rgba(228, 76, 101, 0.5);
-		}
-		details.faq-accordion summary {
-			font-weight: bold;
-			color: #ffffff !important;
-			cursor: pointer;
-			outline: none;
-			list-style: none;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			font-size: 0.98em;
-		}
-		details.faq-accordion summary::-webkit-details-marker {
-			display: none;
-		}
-		details.faq-accordion summary::after {
-			content: "＋";
-			color: #e44c65;
-			font-size: 1.1em;
-			transition: transform 0.3s ease;
-		}
-		details.faq-accordion[open] summary::after {
-			content: "－";
-		}
-		details.faq-accordion p {
-			margin-top: 0.6em !important;
-			margin-bottom: 0 !important;
-			font-size: 0.92em !important;
-			color: #ffffff !important;
 		}
 
 		.form-submit-btn {
@@ -408,7 +406,7 @@
 			</div>
 		</section>
 
-		<!-- 3. 服務項目與作品案例 (緊湊卡片 + 按鈕間距調緊) -->
+		<!-- 3. 服務項目與作品案例 -->
 		<section id="services-portfolio" class="wrapper style2 fade-up">
 			<div class="container">
 				<header class="major special">
