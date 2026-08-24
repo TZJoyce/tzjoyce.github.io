@@ -63,7 +63,7 @@
 			background-position: center center;
 			background-size: cover;
 			position: relative;
-			padding: 3.5em 0 3em 0 !important; /* 精確控制頂部距離 */
+			padding: 3.5em 0 3em 0 !important;
 			margin-top: 0 !important;
 		}
 		#banner .content {
@@ -102,61 +102,129 @@
 				padding: 0 1em !important;
 				height: 2.8em !important;
 				line-height: 2.8em !important;
-				font-size: 1.0rem !important;
+				font-size: 0.9rem !important;
 			}
 		}
 
-		/* 3. 新版圖示 (Icon) 質感樣式：去除圓圈，採用極簡線條感 */
+		/* 3. 服務案例卡片優化：高度與按鈕間距調緊 */
 		.custom-service-card {
-			background: rgba(255,255,255,0.03);
-			padding: 2.2em 2em;
+			background: rgba(255, 255, 255, 0.04);
+			padding: 1.5em 1.5em 1.2em 1.5em; /* 緊湊內距 */
 			border-radius: 10px;
-			border: 1px solid rgba(255,255,255,0.1);
+			border: 1px solid rgba(255, 255, 255, 0.12);
 			height: 100%;
 			display: flex;
 			flex-direction: column;
 			transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 		}
 		.custom-service-card:hover {
-			border-color: rgba(228, 76, 101, 0.5);
-			background: rgba(255,255,255,0.05);
-			transform: translateY(-4px);
+			border-color: rgba(228, 76, 101, 0.6);
+			background: rgba(255, 255, 255, 0.07);
+			transform: translateY(-3px);
 		}
 		.card-icon-header {
 			display: flex;
 			align-items: center;
-			gap: 0.8em;
-			margin-bottom: 0.8em;
+			gap: 0.6em;
+			margin-bottom: 0.5em;
 		}
 		.card-icon-header i {
-			font-size: 1.6em;
+			font-size: 1.4em;
 			color: #e44c65;
 		}
 		.card-icon-header h3 {
 			margin: 0;
-			font-size: 1.25em;
+			font-size: 1.2em;
+			color: #ffffff;
+		}
+		.custom-service-card p {
+			margin-bottom: 0.8em !important;
+			font-size: 0.95em !important;
+			line-height: 1.6 !important;
+			color: rgba(255, 255, 255, 0.95) !important;
+		}
+		.custom-service-card .card-action-wrap {
+			margin-top: auto; /* 將按鈕貼緊底部 */
+			padding-top: 0.4em;
+		}
+		.custom-service-card .button.small {
+			height: 2.4em !important;
+			line-height: 2.4em !important;
+			padding: 0 1.2em !important;
+			font-size: 0.85rem !important;
+			border-radius: 4px;
 		}
 
-		/* 合作效益無圓圈 Icon 設計 */
+		/* 合作效益卡片 */
 		.outcome-item-card {
-			padding: 1.5em 1em;
+			padding: 1.2em 1em;
 			border-radius: 8px;
-			background: rgba(255, 255, 255, 0.02);
-			border: 1px solid rgba(255, 255, 255, 0.06);
+			background: rgba(255, 255, 255, 0.03);
+			border: 1px solid rgba(255, 255, 255, 0.08);
 			height: 100%;
 			transition: background 0.3s ease;
 		}
 		.outcome-item-card:hover {
-			background: rgba(255, 255, 255, 0.04);
+			background: rgba(255, 255, 255, 0.06);
 		}
 		.outcome-item-card i.outcome-icon {
-			font-size: 2.2em;
+			font-size: 2em;
 			color: #e44c65;
 			display: inline-block;
-			margin-bottom: 0.4em;
+			margin-bottom: 0.3em;
 		}
 
-		/* 4. 浮動側邊按鈕 (Top & 立即聯繫) */
+		/* 4. 全局與紅色/深色背景下的 <p> 小字清晰度強化 */
+		p, li, span, small {
+			color: rgba(255, 255, 255, 0.95) !important; /* 提升對比度至接近純白 */
+			line-height: 1.7 !important;
+			font-weight: 400;
+		}
+
+		/* 紅色按鈕與紅色背景區塊內的文字強制純白與清晰 */
+		.button.primary, 
+		input[type="submit"].primary,
+		.style2,
+		.style2 p,
+		.style2 li,
+		.wrapper.style2 p {
+			color: #ffffff !important;
+			text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* 加入微陰影提升辨識度 */
+		}
+
+		/* 表格、表單框內說明文字與 Option */
+		form input[type="text"],
+		form input[type="email"],
+		form select,
+		form textarea,
+		table input,
+		table td,
+		table th {
+			color: #ffffff !important;
+			background: rgba(255, 255, 255, 0.1) !important;
+			border: 1px solid rgba(255, 255, 255, 0.3) !important;
+			font-size: 0.95rem !important;
+			border-radius: 6px;
+			padding: 0.6em 1em;
+		}
+		form input::placeholder,
+		form textarea::placeholder {
+			color: rgba(255, 255, 255, 0.75) !important; /* Placeholder 不再昏暗 */
+		}
+		form select option {
+			background-color: #27293d !important;
+			color: #ffffff !important;
+		}
+
+		@media screen and (max-width: 736px) {
+			p, li {
+				font-size: 1rem !important;
+				color: #ffffff !important;
+				line-height: 1.75 !important;
+			}
+		}
+
+		/* 5. 浮動側邊按鈕 */
 		.floating-btn-group {
 			position: fixed;
 			bottom: 25px;
@@ -190,78 +258,11 @@
 			background: rgba(39, 41, 61, 0.9);
 			border-color: rgba(228, 76, 101, 0.6);
 		}
-		.floating-btn.contact-btn:hover {
-			background: #27293d;
-		}
 
-		/* 5. 手機版內文清晰度提升 */
-		p, li, span {
-			color: rgba(255, 255, 255, 0.88) !important;
-			line-height: 1.75 !important;
-		}
-		@media screen and (max-width: 736px) {
-			p, li {
-				font-size: 1.02rem !important;
-				color: #ffffff !important;
-				line-height: 1.8 !important;
-			}
-		}
-
-		/* 6. 關於我圖片 Hover 效果 */
-		.spotlight .image {
-			overflow: hidden;
-			border-radius: 8px;
-		}
-		.spotlight .image img {
-			transition: transform 0.6s ease, filter 0.6s ease;
-			display: block;
-			width: 100%;
-			height: auto;
-		}
-		.spotlight:hover .image img {
-			transform: scale(1.06);
-			filter: brightness(1.05);
-		}
-
-		/* 7. 表單與下拉選單 Hint UI 設計 */
-		form input[type="text"],
-		form input[type="email"],
-		form select,
-		form textarea {
-			color: #ffffff !important;
-			background: rgba(255, 255, 255, 0.08) !important;
-			border: 1px solid rgba(255, 255, 255, 0.25) !important;
-			font-size: 0.95rem !important;
-			border-radius: 6px;
-			padding: 0.6em 1em;
-		}
-		form select {
-			appearance: none;
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') !important;
-			background-repeat: no-repeat !important;
-			background-position: right 12px center !important;
-			padding-right: 35px !important;
-			cursor: pointer;
-		}
-		form input::placeholder,
-		form textarea::placeholder {
-			color: rgba(255, 255, 255, 0.5) !important;
-		}
-		form select option {
-			background-color: #27293d !important;
-			color: #ffffff !important;
-		}
-		form input:focus, form select:focus, form textarea:focus {
-			border-color: #e44c65 !important;
-			background: rgba(255, 255, 255, 0.12) !important;
-		}
-
-		/* 8. FAQ 手風琴樣式 */
+		/* 6. FAQ 手風琴樣式 */
 		details.faq-accordion {
-			background: rgba(255, 255, 255, 0.03);
-			border: 1px solid rgba(255, 255, 255, 0.1);
+			background: rgba(255, 255, 255, 0.05);
+			border: 1px solid rgba(255, 255, 255, 0.15);
 			border-radius: 6px;
 			margin-bottom: 0.8em;
 			padding: 0.8em 1.2em;
@@ -269,19 +270,19 @@
 			transition: background 0.3s ease;
 		}
 		details.faq-accordion[open] {
-			background: rgba(255, 255, 255, 0.06);
-			border-color: rgba(228, 76, 101, 0.4);
+			background: rgba(255, 255, 255, 0.08);
+			border-color: rgba(228, 76, 101, 0.5);
 		}
 		details.faq-accordion summary {
 			font-weight: bold;
-			color: #ffffff;
+			color: #ffffff !important;
 			cursor: pointer;
 			outline: none;
 			list-style: none;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			font-size: 0.95em;
+			font-size: 0.98em;
 		}
 		details.faq-accordion summary::-webkit-details-marker {
 			display: none;
@@ -298,8 +299,8 @@
 		details.faq-accordion p {
 			margin-top: 0.6em !important;
 			margin-bottom: 0 !important;
-			font-size: 0.9em !important;
-			color: rgba(255, 255, 255, 0.8) !important;
+			font-size: 0.92em !important;
+			color: #ffffff !important;
 		}
 
 		.form-submit-btn {
@@ -407,7 +408,7 @@
 			</div>
 		</section>
 
-		<!-- 3. 服務項目與作品案例 (無圓圈純淬線條 Icon) -->
+		<!-- 3. 服務項目與作品案例 (緊湊卡片 + 按鈕間距調緊) -->
 		<section id="services-portfolio" class="wrapper style2 fade-up">
 			<div class="container">
 				<header class="major special">
@@ -422,10 +423,10 @@
 								<i class="icon solid fa-users"></i>
 								<h3>B2B 潛在客戶開發 (Lead Gen)</h3>
 							</div>
-							<p style="flex-grow: 1;">整合 SEO、GEO (AI 搜尋優化)、高轉換 Landing Page 與自動化 Email 流程，建立穩定且高品質的 B2B 商機開發管道。</p>
-							<ul class="actions" style="margin-top: 1.2em;">
-								<li><a href="blog/index.html" class="button primary small">查看 Lead Gen 相關案例</a></li>
-							</ul>
+							<p>整合 SEO、GEO (AI 搜尋優化)、高轉換 Landing Page 與自動化 Email 流程，建立穩定且高品質的 B2B 商機開發管道。</p>
+							<div class="card-action-wrap">
+								<a href="blog/index.html" class="button primary small">查看 Lead Gen 相關案例</a>
+							</div>
 						</div>
 					</div>
 
@@ -435,10 +436,10 @@
 								<i class="icon solid fa-bullseye"></i>
 								<h3>Go-to-Market 與產品上市策略</h3>
 							</div>
-							<p style="flex-grow: 1;">協助科技與製造業產品釐清定位 (Positioning)、擬定進入市場策略與 Campaign 規劃，讓行銷與業務溝通語言保持一致。</p>
-							<ul class="actions" style="margin-top: 1.2em;">
-								<li><a href="blog/index.html" class="button primary small">查看 GTM 上市案例</a></li>
-							</ul>
+							<p>協助科技與製造業產品釐清定位 (Positioning)、擬定進入市場策略與 Campaign 規劃，讓行銷與業務溝通語言保持一致。</p>
+							<div class="card-action-wrap">
+								<a href="blog/index.html" class="button primary small">查看 GTM 上市案例</a>
+							</div>
 						</div>
 					</div>
 
@@ -448,10 +449,10 @@
 								<i class="icon solid fa-file-alt"></i>
 								<h3>專業內容行銷與業務銷售素材</h3>
 							</div>
-							<p style="flex-grow: 1;">將複雜產品與技術轉化為具說服力的行銷語言，提供 SEO 文章、Sales Deck、產品型錄、新聞稿與客戶成功案例撰寫。</p>
-							<ul class="actions" style="margin-top: 1.2em;">
-								<li><a href="blog/index.html" class="button primary small">查看內容產出案例</a></li>
-							</ul>
+							<p>將複雜產品與技術轉化為具說服力的行銷語言，提供 SEO 文章、Sales Deck、產品型錄、新聞稿與客戶成功案例撰寫。</p>
+							<div class="card-action-wrap">
+								<a href="blog/index.html" class="button primary small">查看內容產出案例</a>
+							</div>
 						</div>
 					</div>
 
@@ -461,10 +462,10 @@
 								<i class="icon solid fa-chart-pie"></i>
 								<h3>GA4 與行銷數據分析 Dashboard</h3>
 							</div>
-							<p style="flex-grow: 1;">設定 GA4 追蹤架構、打造視覺化成效儀表板與廣告 KPI 評估，以數據為基礎隨時優化投資報酬率。</p>
-							<ul class="actions" style="margin-top: 1.2em;">
-								<li><a href="blog/index.html" class="button primary small">查看數據分析案例</a></li>
-							</ul>
+							<p>設定 GA4 追蹤架構、打造視覺化成效儀表板與廣告 KPI 評估，以數據為基礎隨時優化投資報酬率。</p>
+							<div class="card-action-wrap">
+								<a href="blog/index.html" class="button primary small">查看數據分析案例</a>
+							</div>
 						</div>
 					</div>
 
@@ -472,7 +473,7 @@
 			</div>
 		</section>
 
-		<!-- 4. 合作效益 (極簡無圓圈 Icon) -->
+		<!-- 4. 合作效益 -->
 		<section id="outcomes" class="wrapper style1 special fade-up">
 			<div class="container">
 				<header class="major">
@@ -512,19 +513,19 @@
 			</div>
 		</section>
 
-		<!-- 5. 聯絡我 (Contact) - 優先顯示表單，FAQ 下移 -->
+		<!-- 5. 聯絡我 (Contact) -->
 		<section id="contact" class="wrapper style2 special fade-up" style="padding: 3.5em 0 3em 0;">
 			<div class="container" style="max-width: 860px;">
 				<header class="major" style="margin-bottom: 1.5em;">
 					<h2>預約專案諮詢 / 聯絡我</h2>
 					<p style="margin-bottom: 0.5em;">
 						直接來信聯繫：<a href="mailto:joycetcc98@gmail.com" style="color: #ffffff; text-decoration: underline; font-weight: bold;">joycetcc98@gmail.com</a>
-						<span style="font-size: 0.85em; opacity: 0.7; display: inline-block; margin-left: 0.5em;">（通常於 1–2 個工作天內回覆）</span>
+						<span style="font-size: 0.88em; opacity: 0.9; display: inline-block; margin-left: 0.5em;">（通常於 1–2 個工作天內回覆）</span>
 					</p>
 				</header>
 
 				<!-- 主要表單區域 -->
-				<div class="box" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.12); padding: 2em 1.8em; border-radius: 10px; text-align: left; margin-bottom: 2.5em;">
+				<div class="box" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.15); padding: 2em 1.8em; border-radius: 10px; text-align: left; margin-bottom: 2.5em;">
 					
 					<form action="https://formspree.io/f/maeweleq" method="POST">
 						<input type="hidden" name="_next" value="https://tzjoyce.github.io/zh/thank-you.html">
@@ -581,7 +582,7 @@
 
 				</div>
 
-				<!-- FAQ 常見問題 (移至填表下方 + 獨立標題) -->
+				<!-- FAQ 常見問題 -->
 				<div style="text-align: left; max-width: 860px; margin: 0 auto;">
 					<h3 style="color: #ffffff; font-size: 1.2em; margin-bottom: 0.8em; display: flex; align-items: center; gap: 0.5em;">
 						<i class="icon solid fa-question-circle" style="color: #e44c65;"></i> 常見問題 (FAQ)
