@@ -220,7 +220,7 @@
 			}
 		}
 
-		/* 5. FAQ 手風琴樣式：僅解答處獨佔「粗體」 */
+        /* 5. FAQ 手風琴樣式：問題細體，僅解答處獨佔「粗體」 */
 		details.faq-accordion {
 			background: rgba(255, 255, 255, 0.04);
 			border: 1px solid rgba(255, 255, 255, 0.12);
@@ -235,8 +235,8 @@
 			border-color: rgba(228, 76, 101, 0.5);
 		}
 		details.faq-accordion summary {
-			font-weight: 600 !important;
-			color: #ffffff !important;
+			font-weight: 300 !important; /* 修改點：改回 300 纖細體，保持優雅質感 */
+			color: rgba(255, 255, 255, 0.95) !important;
 			cursor: pointer;
 			outline: none;
 			list-style: none;
@@ -251,20 +251,21 @@
 		details.faq-accordion summary::after {
 			content: "＋";
 			color: #e44c65;
+			font-weight: bold; /* 讓 ＋ 號維持清楚 */
 			font-size: 1.1em;
 			transition: transform 0.3s ease;
 		}
 		details.faq-accordion[open] summary::after {
 			content: "－";
 		}
-		/* FAQ 解答：單獨設為粗體與純白 */
+		/* FAQ 解答：獨佔粗體與高清純白 */
 		details.faq-accordion p {
 			margin-top: 0.6em !important;
 			margin-bottom: 0 !important;
 			font-size: 0.93em !important;
-			font-weight: 600 !important; /* 單獨維持粗體 */
-			color: #ffffff !important; /* 完全純白 */
-		}
+			font-weight: 600 !important; /* 解答處維持粗體 */
+			color: #ffffff !important; /* 完全純白加強對比 */
+		}	
 
 		/* 6. 浮動側邊按鈕 */
 		.floating-btn-group {
