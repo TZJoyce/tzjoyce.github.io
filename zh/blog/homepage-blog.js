@@ -8,24 +8,25 @@ document.addEventListener("DOMContentLoaded", () => {
   container.innerHTML = "";
 
   // 1. 動態渲染首頁精選文章（套用 Landed 的網格系統 col-4）
-  posts.forEach(post => {
+ posts.forEach(post => {
     container.innerHTML += `
       <section class="col-4 col-6-medium col-12-xsmall">
-        <div class="box alt" style="height: 100%; display: flex; flex-direction: column;">
+        <div class="box alt" style="height: 100%; display: flex; flex-direction: column; text-align: left;">
           <a href="blog/${post.url}" class="image fit" style="margin-bottom: 1em;">
             <img src="${post.image}" alt="${post.title}" />
           </a>
-          <span class="blog-category" style="font-size: 0.8em; font-weight: bold; color: #e44c65; text-transform: uppercase; margin-bottom: 0.5em;">
+          <span class="blog-category" style="font-size: 0.8em; font-weight: bold; color: #e44c65; text-transform: uppercase; margin-bottom: 0.5em; align-self: flex-start;">
             ${post.category}
           </span>
-          <h3 style="font-size: 1.1em; margin-bottom: 0.5em;">
+          <h3 style="font-size: 1.1em; margin-bottom: 0.5em; text-align: center;">
             <a href="blog/${post.url}">${post.title}</a>
           </h3>
-          <p style="font-size: 0.9em; flex-grow: 1; line-height: 1.5; margin-bottom: 1em;">
+          <p style="font-size: 0.9em; flex-grow: 1; line-height: 1.5; margin-bottom: 1em; text-align: left;">
             ${post.summary}
           </p>
-          <div style="display: flex; justify-content: flex-end; align-items: center; margin-top: auto; padding-top: 0.5em; border-top: 1px solid rgba(255,255,255,0.1);">           
-          <a href="blog/${post.url}" class="button small">閱讀全文</a>
+          <!-- 已移除日期，並將 justify-content 改為 flex-end 讓閱讀全文靠右 -->
+          <div style="display: flex; justify-content: flex-end; align-items: center; margin-top: auto; padding-top: 0.5em; border-top: 1px solid rgba(255,255,255,0.1);">
+            <a href="blog/${post.url}" class="button small">閱讀全文</a>
           </div>
         </div>
       </section>
