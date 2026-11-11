@@ -24,9 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <p style="font-size: 0.9em; flex-grow: 1; line-height: 1.5; margin-bottom: 1em;">
             ${post.summary}
           </p>
-          <div style="font-size: 0.8em; color: #888; display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 0.5em; border-top: 1px solid rgba(255,255,255,0.1);">
-            <span>${post.date}</span>
-            <a href="blog/${post.url}" class="button small">閱讀全文</a>
+          <div style="display: flex; justify-content: flex-end; align-items: center; margin-top: auto; padding-top: 0.5em; border-top: 1px solid rgba(255,255,255,0.1);">           
+          <a href="blog/${post.url}" class="button small">閱讀全文</a>
           </div>
         </div>
       </section>
