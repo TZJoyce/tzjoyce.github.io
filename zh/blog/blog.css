@@ -70,43 +70,15 @@
 
 
 /* ===========================
-   BLOG GRID & CARDS
+   BLOG CONTENT & CARDS
 =========================== */
-
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.blog-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.blog-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(228, 76, 101, 0.5);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-}
-
-.blog-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
 
 .blog-content {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    text-align: left !important; /* 確保內容區塊內所有文字強制靠左 */
 }
 
 .blog-category {
@@ -118,7 +90,8 @@
     font-size: 0.8rem;
     margin-bottom: 0.8em;
     font-weight: 600;
-    align-self: flex-start;
+    align-self: flex-start; /* 讓分類標籤靠左 */
+    text-align: left;
 }
 
 .blog-content h3 {
@@ -126,6 +99,7 @@
     margin-bottom: 0.6rem;
     color: #ffffff;
     line-height: 1.4;
+    text-align: left; /* 標題維持靠左 */
 }
 
 .blog-content h3 a {
@@ -144,6 +118,7 @@
     font-size: 0.9em;
     margin-bottom: 1.2rem;
     flex-grow: 1;
+    text-align: left !important; /* 確保摘要內文靠左對齊 */
 }
 
 .blog-meta {
@@ -154,8 +129,8 @@
     color: rgba(255, 255, 255, 0.5);
     padding-top: 0.8em;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left; /* 底部日期與閱讀按鈕靠左/分散對齊 */
 }
-
 
 /* ===========================
    PAGINATION
