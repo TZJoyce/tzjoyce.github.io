@@ -106,7 +106,7 @@ tzjoyce.github.io<!DOCTYPE HTML>
 			}
 		}
 
-		/* 3. 服務案例卡片：維持緊湊佈局與原版質感 */
+		/* 3. 服務案例卡片優化：標題粗體、自定義圖示顏色 */
 		.custom-service-card {
 			background: rgba(255, 255, 255, 0.03);
 			padding: 1.5em 1.5em 1.2em 1.5em;
@@ -130,17 +130,19 @@ tzjoyce.github.io<!DOCTYPE HTML>
 		}
 		.card-icon-header i {
 			font-size: 1.4em;
-			color: #e44c65;
+			color: #f6d365; /* 這裡可自由更換您喜歡的 Icon 顏色（目前為專業藍紫色） */
 		}
 		.card-icon-header h3 {
 			margin: 0;
 			font-size: 1.2em;
 			color: #ffffff;
+			font-weight: 700 !important; /* 讓標題明確呈現粗體 */
 		}
 		.custom-service-card p {
 			margin-bottom: 0.8em !important;
 			font-size: 0.95em !important;
 			line-height: 1.65 !important;
+			font-weight: 300 !important; /* 內文維持原本的精緻細體 */
 		}
 		.custom-service-card .card-action-wrap {
 			margin-top: auto;
@@ -153,7 +155,7 @@ tzjoyce.github.io<!DOCTYPE HTML>
 			font-size: 0.85rem !important;
 			border-radius: 4px;
 		}
-
+		
 		/* 首頁 Blog 卡片：標題置中，其餘內文與分類靠左 */
 #homepageBlog .box {
 	text-align: left !important;
